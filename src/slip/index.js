@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RemoveComponent from "../assets/remove";
 
 const Slip = () => {
   const [merchantName, setMerchantName] = useState("");
+  const [itemList, setItemList] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0);
+
   const itemObj = {
     itemName: "",
     rate: 0,
     quantity: 0,
   };
 
-  const [itemList, setItemList] = useState([]);
-
+  // handle item values
   const handleOnChange = (e, field, eachItem, index) => {
     const value = e.target.value;
-
-    const updatedItem = { ...itemList[index], [field]: value };
+    let parseValue;
+    if (field === "rate") {
+      parseValue = parseFloat(value) || 0;
+    } else if (field === "quantity") {
+      parseValue = parseInt(value) || 0;
+    } else {
+      parseValue = value;
+    }
+    const updatedItem = { ...itemList[index], [field]: parseValue };
     const updatedItemList = [
       ...itemList.slice(0, index),
       updatedItem,
@@ -23,9 +32,20 @@ const Slip = () => {
     setItemList(updatedItemList);
   };
 
+  // remove item from list
   const removeItem = (index) => {
     setItemList([...itemList.slice(0, index), ...itemList.slice(index + 1)]);
   };
+
+  useEffect(() => {
+    const total = itemList.reduce(
+      (prevValue, currentValue) =>
+        prevValue + currentValue.rate * currentValue.quantity,
+      0
+    );
+    setTotalAmount(total);
+  }, [itemList]);
+
   console.log("🚀 ~ file: index.js:12 ~ Slip ~ itemList:", itemList);
 
   return (
@@ -44,7 +64,7 @@ const Slip = () => {
       >
         {itemList?.map((eachItem, index) => {
           return (
-            <div className="flex items-center gap-2">
+            <div key={index} className="flex items-center gap-2">
               <div className="flex gap-2">
                 <input
                   className="text-black border-y-black bg-slate-500 rounded px-2 py-1"
@@ -73,11 +93,19 @@ const Slip = () => {
             </div>
           );
         })}
-        <div
-          className="cursor-pointer"
-          onClick={() => setItemList([...itemList, itemObj])}
-        >
-          + Add item
+        <div className="w-full flex justify-between">
+          <div
+            className="cursor-pointer"
+            onClick={() => setItemList([...itemList, itemObj])}
+          >
+            + Add item
+          </div>
+          {itemList.length > 0 && (
+            <div>
+              <span>Total :</span>
+              <span>{totalAmount}</span>
+            </div>
+          )}
         </div>
       </div>
       <div>
