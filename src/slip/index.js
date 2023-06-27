@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import RemoveComponent from "../assets/remove";
 
 const Slip = () => {
-  const [merchantName, setMerchantName] = useState("");
-  const [itemList, setItemList] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
-
   const itemObj = {
     itemName: "",
     rate: 0,
     quantity: 0,
   };
+
+  const [merchantName, setMerchantName] = useState("");
+  const [itemList, setItemList] = useState([itemObj]);
+  const [totalAmount, setTotalAmount] = useState(0);
 
   // handle item values
   const handleOnChange = (e, field, eachItem, index) => {
@@ -32,11 +32,29 @@ const Slip = () => {
     setItemList(updatedItemList);
   };
 
-  // remove item from list
-  const removeItem = (index) => {
-    setItemList([...itemList.slice(0, index), ...itemList.slice(index + 1)]);
+  // handle adding new item
+  const handleAddItem = () => {
+    const fetchItemList = itemList;
+    const lastItem = itemList[fetchItemList.length - 1];
+
+    if (lastItem?.itemName?.length > 0) {
+      setItemList([...itemList, itemObj]);
+    } else {
+      console.error("Please fill all items in list");
+    }
   };
 
+  // remove item from list
+  const removeItem = (index) => {
+    const fetchItemList = itemList;
+    if (fetchItemList.length > 1) {
+      setItemList([...itemList.slice(0, index), ...itemList.slice(index + 1)]);
+    } else {
+      console.error("Minimum 1 item should be in list.");
+    }
+  };
+
+  // for calculating the total amount
   useEffect(() => {
     const total = itemList.reduce(
       (prevValue, currentValue) =>
@@ -65,6 +83,7 @@ const Slip = () => {
         {itemList?.map((eachItem, index) => {
           return (
             <div key={index} className="flex items-center gap-2">
+              <div>{`${index + 1}.`}</div>
               <div className="flex gap-2">
                 <input
                   className="text-black border-y-black bg-slate-500 rounded px-2 py-1"
@@ -94,10 +113,7 @@ const Slip = () => {
           );
         })}
         <div className="w-full flex justify-between">
-          <div
-            className="cursor-pointer"
-            onClick={() => setItemList([...itemList, itemObj])}
-          >
+          <div className="cursor-pointer" onClick={() => handleAddItem()}>
             + Add item
           </div>
           {itemList.length > 0 && (
