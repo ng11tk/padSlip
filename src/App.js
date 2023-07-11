@@ -1,14 +1,20 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Slip from "./slip";
-
+import Slip from "./components/slip";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/dashboard";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Slip />
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <div>nitin</div>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/padSlip" element={<Slip />} />
+          </Routes>
+        </header>
+      </div>
+    </Router>
   );
 }
 

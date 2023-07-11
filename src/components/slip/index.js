@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import RemoveComponent from "../assets/remove";
+import RemoveComponent from "../../assets/remove";
 
 const Slip = () => {
   const itemObj = {
     itemName: "",
-    rate: 0,
-    quantity: 0,
+    rate: null,
+    quantity: null,
   };
 
   const [merchantName, setMerchantName] = useState("");
@@ -97,6 +97,7 @@ const Slip = () => {
                   className="text-black border-y-black bg-slate-500 rounded px-2 py-1"
                   value={eachItem?.rate}
                   onChange={(e) => handleOnChange(e, "rate", eachItem, index)}
+                  placeholder="Enter Item Rate"
                 />
                 <input
                   className="text-black border-y-black bg-slate-500 rounded px-2 py-1"
@@ -104,6 +105,7 @@ const Slip = () => {
                   onChange={(e) =>
                     handleOnChange(e, "quantity", eachItem, index)
                   }
+                  placeholder="Enter Item Quantity"
                 />
               </div>
               <div className="cursor-pointer" onClick={() => removeItem(index)}>
