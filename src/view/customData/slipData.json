@@ -1,0 +1,14 @@
+{
+    "slip": [
+        {
+            "itemName": "petha",
+            "rate": 12,
+            "quantity": 12
+        },
+        {
+            "itemName": "namkeen",
+            "rate": 12,
+            "quantity": 12
+        }
+    ]
+}

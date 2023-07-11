@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RemoveComponent from "../../assets/remove";
+import { Link } from "react-router-dom";
+import routes from "../../routes";
 
 const Slip = () => {
   const itemObj = {
@@ -126,8 +128,9 @@ const Slip = () => {
           )}
         </div>
       </div>
-      <div>
+      <div className="flex items-center justify-center gap-4">
         <button>Print</button>
+        <Link to={routes.dashboard}>Cancel</Link>
       </div>
     </div>
   );
