@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import routes from "../../routes";
+import { gql, useQuery } from "@apollo/client";
+import ModalContainer from "../../components/common/modal";
+import SlipModal from "../slip/modals/slipModal";
 
 const customSlip = [
   {
@@ -17,13 +20,46 @@ const customSlip = [
   },
 ];
 
+const GET_SLIPS = gql`
+  query GET_SLIPS($organizationId: String!) {
+    getSlips: slips_slip(where: { organizationId: { _eq: $organizationId } }) {
+      id
+      enterpriseId
+      organizationId
+      slipData
+    }
+  }
+`;
+
 const Dashboard = () => {
+  const [openSlipModal, setOpenSlipModal] = useState(false);
+
+  // fetch slips
+  const { loading, error, data } = useQuery(GET_SLIPS, {
+    variables: {
+      organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
+    },
+  });
+  console.log("🚀 ~ file: index.js:38 ~ Dashboard ~ data:", data);
+
+  // modal close
+  const closeModal = () => {
+    setOpenSlipModal(false);
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
   return (
     <div className="w-full h-full gap-3 flex">
       <div>
-        <Link to={routes.padSlip}>
-          <div className="bg-slate-400 p-2 flex items-center "> + </div>
-        </Link>
+        {/* <Link to={routes.padSlip}> */}
+        <div
+          className="bg-slate-400 p-2 flex items-center cursor-pointer"
+          onClick={() => setOpenSlipModal(true)}
+        >
+          +{" "}
+        </div>
+        {/* </Link> */}
       </div>
 
       {customSlip.map((each) => {
@@ -44,6 +80,9 @@ const Dashboard = () => {
           </div>
         );
       })}
+      {openSlipModal && (
+        <SlipModal showModal={openSlipModal} closeModal={closeModal} />
+      )}
     </div>
   );
 };
