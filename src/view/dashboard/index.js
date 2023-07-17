@@ -21,23 +21,35 @@ const GET_SLIPS = gql`
   query GET_SLIPS($organizationId: String!) {
     getSlips: slips_slip(where: { organizationId: { _eq: $organizationId } }) {
       id
-      enterpriseId
       organizationId
       slipData
+      totalAmount
+      slip_enterprise {
+        id
+        label
+      }
     }
   }
 `;
 
 const Dashboard = () => {
   const [openSlipModal, setOpenSlipModal] = useState(false);
+  const [slipData, setSlipData] = useState([]);
 
   // fetch slips
-  const { loading, error, data } = useQuery(GET_SLIPS, {
+  const {
+    loading,
+    error,
+    // data: slipData,
+  } = useQuery(GET_SLIPS, {
     variables: {
       organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
     },
+    onCompleted: (data) => {
+      const result = data.getSlips;
+      setSlipData(result);
+    },
   });
-  console.log("🚀 ~ file: index.js:38 ~ Dashboard ~ data:", data);
 
   // modal close
   const closeModal = () => {
@@ -59,24 +71,26 @@ const Dashboard = () => {
         {/* </Link> */}
       </div>
 
-      {customSlip.map((each) => {
-        return (
-          <div key={each.id} className="bg-slate-400 p-2">
-            <div className="flex justify-between items-start flex-col">
-              <div>
-                <span>Ent. Name :</span>&nbsp;<span>{each.orgName}</span>
-              </div>
-              <div>
-                <span>Total amount :</span>&nbsp;
-                <span>{each.totalAmount}</span>
-              </div>
-              <div>
+      {slipData.length > 0 &&
+        slipData.map((each) => {
+          return (
+            <div key={each.id} className="bg-slate-400 p-2">
+              <div className="flex justify-between items-start flex-col">
+                <div>
+                  <span>Ent. Name :</span>&nbsp;
+                  <span>{each.slip_enterprise.label}</span>
+                </div>
+                <div>
+                  <span>Total amount :</span>&nbsp;
+                  <span>{each.totalAmount}</span>
+                </div>
+                {/* <div>
                 <span>Last slip :</span>&nbsp;<span>{each.lastUpdate}</span>
+              </div> */}
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
       {openSlipModal && (
         <SlipModal showModal={openSlipModal} closeModal={closeModal} />
       )}
