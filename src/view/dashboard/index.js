@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import routes from "../../routes";
 import { gql, useQuery } from "@apollo/client";
-import ModalContainer from "../../components/common/modal";
 import SlipModal from "../slip/modals/slipModal";
 
 const customSlip = [
@@ -67,7 +64,7 @@ const Dashboard = () => {
           <div key={each.id} className="bg-slate-400 p-2">
             <div className="flex justify-between items-start flex-col">
               <div>
-                <span>Org. Name :</span>&nbsp;<span>{each.orgName}</span>
+                <span>Ent. Name :</span>&nbsp;<span>{each.orgName}</span>
               </div>
               <div>
                 <span>Total amount :</span>&nbsp;
