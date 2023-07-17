@@ -4,39 +4,10 @@ import RemoveComponent from "../../../assets/remove";
 import openNotification from "../../../components/common/notification";
 import alerts from "../../../constants/alerts";
 import { Select } from "antd";
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
+import { INSERT_SLIP_DETAILS } from "../../../schema/mutations";
+import { FETCH_ENTERPRISE_LIST } from "../../../schema/queries";
 const { Option } = Select;
-
-const FETCH_ENTERPRISE_LIST = gql`
-  query FETCH_ENTERPRISE_LIST($organizationId: String!) {
-    enterpriseDetails: enterprises_enterprise(
-      where: { organizationId: { _eq: $organizationId } }
-    ) {
-      id
-      label
-    }
-  }
-`;
-
-const INSERT_SLIP_DETAILS = gql`
-  mutation INSERT_SLIP_DETAILS(
-    $enterpriseId: String!
-    $organizationId: String!
-    $slipData: jsonb!
-    $totalAmount: Int!
-  ) {
-    insert_slips_slip_one(
-      object: {
-        enterpriseId: $enterpriseId
-        organizationId: $organizationId
-        slipData: $slipData
-        totalAmount: $totalAmount
-      }
-    ) {
-      id
-    }
-  }
-`;
 
 const SlipModal = ({ showModal, closeModal }) => {
   const itemObj = {
@@ -52,7 +23,9 @@ const SlipModal = ({ showModal, closeModal }) => {
 
   // fetch enterprise list
   const {
+    // eslint-disable-next-line no-unused-vars
     loading,
+    // eslint-disable-next-line no-unused-vars
     error,
     // data: slipData,
   } = useQuery(FETCH_ENTERPRISE_LIST, {
@@ -69,7 +42,9 @@ const SlipModal = ({ showModal, closeModal }) => {
   const [
     insertSlip,
     {
+      // eslint-disable-next-line no-unused-vars
       loading: slipInsetLoading,
+      // eslint-disable-next-line no-unused-vars
       error: slipInsertError,
       // data: slipData,
     },
@@ -200,11 +175,7 @@ const SlipModal = ({ showModal, closeModal }) => {
             {merchantList?.length > 0
               ? merchantList.map((item, index) => (
                   <React.Fragment key={index}>
-                    <Option
-                      value={item.id}
-                    >
-                      {item.label}
-                    </Option>
+                    <Option value={item.id}>{item.label}</Option>
                   </React.Fragment>
                 ))
               : null}

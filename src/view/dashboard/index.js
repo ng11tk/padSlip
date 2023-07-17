@@ -1,36 +1,22 @@
 import React, { useState } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import SlipModal from "../slip/modals/slipModal";
+import { GET_SLIPS } from "../../schema/queries";
 
-const customSlip = [
-  {
-    id: 0,
-    orgName: "Jagdish Ent.",
-    totalAmount: 232,
-    lastUpdate: "jan 01, 2023",
-  },
-  {
-    id: 1,
-    orgName: "lokesh Ent.",
-    totalAmount: 232,
-    lastUpdate: "jan 01, 2023",
-  },
-];
-
-const GET_SLIPS = gql`
-  query GET_SLIPS($organizationId: String!) {
-    getSlips: slips_slip(where: { organizationId: { _eq: $organizationId } }) {
-      id
-      organizationId
-      slipData
-      totalAmount
-      slip_enterprise {
-        id
-        label
-      }
-    }
-  }
-`;
+// const customSlip = [
+//   {
+//     id: 0,
+//     orgName: "Jagdish Ent.",
+//     totalAmount: 232,
+//     lastUpdate: "jan 01, 2023",
+//   },
+//   {
+//     id: 1,
+//     orgName: "lokesh Ent.",
+//     totalAmount: 232,
+//     lastUpdate: "jan 01, 2023",
+//   },
+// ];
 
 const Dashboard = () => {
   const [openSlipModal, setOpenSlipModal] = useState(false);
