@@ -146,7 +146,7 @@ const SlipModal = ({ showModal, closeModal }) => {
     <ModalContainer
       bodyStyle={{ background: "#2F3B52" }}
       visible={showModal}
-      width={"600px"}
+      width={"800px"}
       closeModal={closeModal}
       closable={false}
       destroyOnClose={true}
@@ -189,10 +189,10 @@ const SlipModal = ({ showModal, closeModal }) => {
             return (
               <div
                 key={index}
-                className="w-full flex flex-row items-center gap-3"
+                className="w-full flex flex-row items-center justify-between gap-3"
               >
                 <div className="w-1/10">{`${index + 1}.`}</div>
-                <div className="flex gap-2">
+                <div className="flex w-full gap-2">
                   <input
                     className="w-1/3 text-black border-y-black bg-slate-500 rounded px-2 py-1"
                     value={eachItem?.itemName}

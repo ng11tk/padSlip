@@ -22,7 +22,7 @@ const Dashboard = () => {
   const [openSlipModal, setOpenSlipModal] = useState(false);
   const [slipData, setSlipData] = useState([]);
 
-  // fetch slips
+  //* fetch slips
   const {
     loading,
     error,
@@ -57,26 +57,30 @@ const Dashboard = () => {
         {/* </Link> */}
       </div>
 
-      {slipData.length > 0 &&
-        slipData.map((each) => {
-          return (
-            <div key={each.id} className="bg-slate-400 p-2">
-              <div className="flex justify-between items-start flex-col">
-                <div>
-                  <span>Ent. Name :</span>&nbsp;
-                  <span>{each.slip_enterprise.label}</span>
-                </div>
-                <div>
-                  <span>Total amount :</span>&nbsp;
-                  <span>{each.totalAmount}</span>
-                </div>
-                {/* <div>
+      <div className="grid gap-4 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4">
+        {" "}
+        {slipData.length > 0 &&
+          slipData.map((each) => {
+            return (
+              <div key={each.id} className="bg-slate-400 p-2">
+                <div className="flex justify-between items-start flex-col">
+                  <div>
+                    <span>Ent. Name :</span>&nbsp;
+                    <span>{each.slip_enterprise.label}</span>
+                  </div>
+                  <div>
+                    <span>Total amount :</span>&nbsp;
+                    <span>{each.totalAmount}</span>
+                  </div>
+                  {/* <div>
                 <span>Last slip :</span>&nbsp;<span>{each.lastUpdate}</span>
               </div> */}
+                </div>
               </div>
-            </div>
-          );
-        })}
+             );
+          })}
+      </div>
+
       {openSlipModal && (
         <SlipModal showModal={openSlipModal} closeModal={closeModal} />
       )}
