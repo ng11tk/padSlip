@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import SlipModal from "../slip/modals/slipModal";
+import CreateSlipModal from "../slip/modals/slipModal";
 import { GET_SLIPS } from "../../schema/queries";
+import ModalContainer from "../../components/common/modal";
 
 // const customSlip = [
 //   {
@@ -19,7 +20,9 @@ import { GET_SLIPS } from "../../schema/queries";
 // ];
 
 const Dashboard = () => {
-  const [openSlipModal, setOpenSlipModal] = useState(false);
+  const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
+  const [openViewSlipModal, setOpenViewSlipModal] = useState(false);
+  const [viewSlipData, setViewSlipData] = useState({});
   const [slipData, setSlipData] = useState([]);
 
   //* fetch slips
@@ -38,8 +41,12 @@ const Dashboard = () => {
   });
 
   // modal close
-  const closeModal = () => {
-    setOpenSlipModal(false);
+  const closeCreateSlipModal = () => {
+    setOpenCreateSlipModal(false);
+  };
+
+  const closeViewSlipModal = () => {
+    setOpenViewSlipModal(false);
   };
 
   if (loading) return <p>Loading...</p>;
@@ -50,7 +57,7 @@ const Dashboard = () => {
         {/* <Link to={routes.padSlip}> */}
         <div
           className="bg-slate-400 p-2 flex items-center cursor-pointer"
-          onClick={() => setOpenSlipModal(true)}
+          onClick={() => setOpenCreateSlipModal(true)}
         >
           +{" "}
         </div>
@@ -58,34 +65,67 @@ const Dashboard = () => {
       </div>
 
       <div className="grid gap-4 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4">
-        {" "}
         {slipData.length > 0 &&
-          slipData.map((each) => {
+          slipData.map((slip) => {
             return (
-              <div key={each.id} className="bg-slate-400 p-2">
+              <div
+                key={slip.id}
+                className="bg-slate-400 p-2"
+                onClick={() => {
+                  setOpenViewSlipModal(true);
+                  setViewSlipData(slip);
+                }}
+              >
                 <div className="flex justify-between items-start flex-col">
                   <div>
                     <span>Ent. Name :</span>&nbsp;
-                    <span>{each.slip_enterprise.label}</span>
+                    <span>{slip.slip_enterprise.label}</span>
                   </div>
                   <div>
                     <span>Total amount :</span>&nbsp;
-                    <span>{each.totalAmount}</span>
+                    <span>{slip.totalAmount}</span>
                   </div>
                   {/* <div>
-                <span>Last slip :</span>&nbsp;<span>{each.lastUpdate}</span>
+                <span>Last slip :</span>&nbsp;<span>{slip.lastUpdate}</span>
               </div> */}
                 </div>
               </div>
-             );
+            );
           })}
       </div>
 
-      {openSlipModal && (
-        <SlipModal showModal={openSlipModal} closeModal={closeModal} />
+      {openCreateSlipModal && (
+        <CreateSlipModal
+          showModal={openCreateSlipModal}
+          closeModal={closeCreateSlipModal}
+        />
+      )}
+      {openViewSlipModal && (
+        <ViewSlipModal
+          showModal={openViewSlipModal}
+          closeModal={closeViewSlipModal}
+          viewSlipData={viewSlipData}
+        />
       )}
     </div>
   );
 };
 
 export default Dashboard;
+
+const ViewSlipModal = ({ showModal, closeModal, viewSlipData }) => {
+  console.log("slip details", viewSlipData);
+  return (
+    <ModalContainer
+      bodyStyle={{ background: "#2F3B52" }}
+      visible={showModal}
+      width={"800px"}
+      closeModal={closeModal}
+      closable={false}
+      destroyOnClose={true}
+      maskClosable={true}
+    >
+      nitin
+    </ModalContainer>
+  );
+};
