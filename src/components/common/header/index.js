@@ -24,7 +24,7 @@ const Header = () => {
               <NavLink to={routes.dashboard}>Contact</NavLink>
             </li>
             <li>
-              <NavLink to={routes.dashboard}>org</NavLink>
+              <NavLink to={routes.dashboard}>Org</NavLink>
             </li>
           </ui>
         </div>

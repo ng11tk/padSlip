@@ -8,7 +8,7 @@ const ModalContainer = (props) => {
       <Modal
         destroyOnClose={props.destroyOnClose}
         className={props.className}
-        bodyStyle={props.bodyStyle || { background: "#20293C" }}
+        // bodyStyle={props.bodyStyle || { background: "#20293C" }}
         open={props.visible}
         width={props.width}
         onCancel={props.closeModal}

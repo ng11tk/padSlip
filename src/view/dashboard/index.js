@@ -52,25 +52,24 @@ const Dashboard = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
   return (
-    <div className="w-full h-full gap-3 flex">
-      <div>
-        {/* <Link to={routes.padSlip}> */}
-        <div
-          className="bg-slate-400 p-2 flex items-center cursor-pointer"
-          onClick={() => setOpenCreateSlipModal(true)}
-        >
-          +{" "}
-        </div>
-        {/* </Link> */}
+    <div className="w-full h-full">
+      <div
+        className="bg-slate-400 p-2 cursor-pointer"
+        onClick={() => setOpenCreateSlipModal(true)}
+      >
+        +{" "}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div
+        className="grid gap-4 mt-4
+                    sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+      >
         {slipData.length > 0 &&
           slipData.map((slip) => {
             return (
               <div
                 key={slip.id}
-                className="bg-slate-400 p-2"
+                className="w-full bg-slate-400 p-2"
                 onClick={() => {
                   setOpenViewSlipModal(true);
                   setViewSlipData(slip);
@@ -117,7 +116,7 @@ const ViewSlipModal = ({ showModal, closeModal, viewSlipData }) => {
   console.log("slip details", viewSlipData);
   return (
     <ModalContainer
-      bodyStyle={{ background: "#2F3B52" }}
+      // bodyStyle={{ background: "#2F3B52" }}
       visible={showModal}
       width={"800px"}
       closeModal={closeModal}
