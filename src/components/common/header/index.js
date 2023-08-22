@@ -13,7 +13,7 @@ const Header = () => {
       </NavLink>
       <nav className="w-1/2">
         <div>
-          <ui className="list-none flex gap-4">
+          <ul className="list-none flex gap-4">
             <li>
               <NavLink to={routes.dashboard}>Home</NavLink>
             </li>
@@ -26,7 +26,7 @@ const Header = () => {
             <li>
               <NavLink to={routes.dashboard}>Org</NavLink>
             </li>
-          </ui>
+          </ul>
         </div>
       </nav>
     </header>

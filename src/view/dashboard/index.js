@@ -2,22 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import CreateSlipModal from "../slip/modals/slipModal";
 import { GET_SLIPS } from "../../schema/queries";
-import ModalContainer from "../../components/common/modal";
-
-// const customSlip = [
-//   {
-//     id: 0,
-//     orgName: "Jagdish Ent.",
-//     totalAmount: 232,
-//     lastUpdate: "jan 01, 2023",
-//   },
-//   {
-//     id: 1,
-//     orgName: "lokesh Ent.",
-//     totalAmount: 232,
-//     lastUpdate: "jan 01, 2023",
-//   },
-// ];
+import ViewSlipModal from "./modals/slipDetails";
 
 const Dashboard = () => {
   const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
@@ -111,20 +96,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-const ViewSlipModal = ({ showModal, closeModal, viewSlipData }) => {
-  console.log("slip details", viewSlipData);
-  return (
-    <ModalContainer
-      // bodyStyle={{ background: "#2F3B52" }}
-      visible={showModal}
-      width={"800px"}
-      closeModal={closeModal}
-      closable={false}
-      destroyOnClose={true}
-      maskClosable={true}
-    >
-      nitin
-    </ModalContainer>
-  );
-};

@@ -14,6 +14,7 @@ export const GET_SLIPS = gql`
     }
   }
 `;
+
 export const FETCH_ENTERPRISE_LIST = gql`
   query FETCH_ENTERPRISE_LIST($organizationId: String!) {
     enterpriseDetails: enterprises_enterprise(
