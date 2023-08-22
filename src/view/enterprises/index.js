@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FETCH_ENTERPRISE_LIST } from "../../schema/queries";
 import { useQuery } from "@apollo/client";
 import CreateEnterprise from "./modals/createEnterprise";
+import { Link } from "react-router-dom";
 
 const Enterprises = () => {
   const [enterpriseList, setEnterpriseList] = useState([]);
@@ -30,6 +31,7 @@ const Enterprises = () => {
   return (
     <div className="w-full h-full">
       <div
+        key={""}
         className="bg-slate-400 p-2 cursor-pointer"
         onClick={() => setOpenCreateEnterpriseModal(true)}
       >
@@ -43,25 +45,23 @@ const Enterprises = () => {
         {enterpriseList.length > 0 &&
           enterpriseList.map((eachEnterprise) => {
             return (
-              <div
-                key={eachEnterprise.id}
-                className="w-full bg-slate-400 p-2"
-                // onClick={() => {
-                //   setOpenViewSlipModal(true);
-                //   setViewSlipData(eachEnterprise);
-                // }}
-              >
-                <div className="flex justify-between items-start flex-col">
-                  <div>
-                    <span>Ent. Name :</span>&nbsp;
-                    <span>{eachEnterprise.label}</span>
-                  </div>
-                  <div>
-                    <span>Remaining Balance :</span>&nbsp;
-                    <span>{eachEnterprise?.totalAmount || 0}</span>
+              <Link to={`/enterprises/${eachEnterprise.id}`}>
+                <div
+                  key={eachEnterprise.id}
+                  className="w-full bg-slate-400 p-2"
+                >
+                  <div className="flex justify-between items-start flex-col">
+                    <div>
+                      <span>Ent. Name :</span>&nbsp;
+                      <span>{eachEnterprise.label}</span>
+                    </div>
+                    <div>
+                      <span>Remaining Balance :</span>&nbsp;
+                      <span>{eachEnterprise?.totalAmount || 0}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
       </div>

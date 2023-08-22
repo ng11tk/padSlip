@@ -25,3 +25,18 @@ export const FETCH_ENTERPRISE_LIST = gql`
     }
   }
 `;
+
+export const GET_ENTERPRISE_SLIPS = gql`
+  query MyQuery($enterpriseId: String!, $organizationId: String!) {
+    enterpriseSlips: slips_slip(
+      where: {
+        enterpriseId: { _eq: $enterpriseId }
+        organizationId: { _eq: $organizationId }
+      }
+    ) {
+      id
+      slipData
+      totalAmount
+    }
+  }
+`;
