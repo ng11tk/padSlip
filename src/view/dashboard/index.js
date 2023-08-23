@@ -7,7 +7,7 @@ import ViewSlipModal from "./modals/slipDetails";
 const Dashboard = () => {
   const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
   const [openViewSlipModal, setOpenViewSlipModal] = useState(false);
-  const [viewSlipData, setViewSlipData] = useState({});
+  const [viewSlipData, setViewSlipData] = useState([]);
   const [slipData, setSlipData] = useState([]);
 
   //* fetch slips
