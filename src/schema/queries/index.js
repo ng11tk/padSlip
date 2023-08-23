@@ -27,16 +27,20 @@ export const FETCH_ENTERPRISE_LIST = gql`
 `;
 
 export const GET_ENTERPRISE_SLIPS = gql`
-  query MyQuery($enterpriseId: String!, $organizationId: String!) {
-    enterpriseSlips: slips_slip(
+  query GET_ENTERPRISE_SLIPS($enterpriseId: String!, $organizationId: String!) {
+    enterpriseSlips: enterprises_enterprise(
       where: {
-        enterpriseId: { _eq: $enterpriseId }
+        id: { _eq: $enterpriseId }
         organizationId: { _eq: $organizationId }
       }
     ) {
       id
-      slipData
-      totalAmount
+      label
+      enterprise_slips {
+        id
+        slipData
+        totalAmount
+      }
     }
   }
 `;

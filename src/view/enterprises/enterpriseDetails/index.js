@@ -32,12 +32,15 @@ const EnterpriseDetails = () => {
 
   return (
     <div className="w-full h-full">
+      <div className="text-left font-medium">
+        <span>{enterpriseSlips[0]?.label}</span>
+      </div>
       <div
         className="grid gap-4 mt-4
                     sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       >
         {enterpriseSlips.length > 0 &&
-          enterpriseSlips.map((slip) => {
+          enterpriseSlips[0]?.enterprise_slips.map((slip) => {
             return (
               <div
                 key={slip.id}
@@ -67,6 +70,7 @@ const EnterpriseDetails = () => {
         <ViewSlipModal
           showModal={openViewSlipModal}
           closeModal={closeViewSlipModal}
+          enterpriseLabel={enterpriseSlips[0].label}
           viewSlipData={viewSlipData}
         />
       )}

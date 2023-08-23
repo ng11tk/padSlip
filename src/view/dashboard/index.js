@@ -88,6 +88,7 @@ const Dashboard = () => {
         <ViewSlipModal
           showModal={openViewSlipModal}
           closeModal={closeViewSlipModal}
+          enterpriseLabel={viewSlipData.slip_enterprise.label}
           viewSlipData={viewSlipData}
         />
       )}

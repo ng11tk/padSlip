@@ -1,7 +1,12 @@
 import React from "react";
 import ModalContainer from "../../../../components/common/modal";
 
-const ViewSlipModal = ({ showModal, closeModal, viewSlipData }) => {
+const ViewSlipModal = ({
+  showModal,
+  closeModal,
+  enterpriseLabel,
+  viewSlipData,
+}) => {
   console.log("slip details", viewSlipData);
   return (
     <ModalContainer
@@ -14,9 +19,7 @@ const ViewSlipModal = ({ showModal, closeModal, viewSlipData }) => {
       maskClosable={true}
     >
       <div>
-        <div className="text-center">
-          {viewSlipData?.slip_enterprise?.label || "Cash"}
-        </div>
+        <div className="text-center">{enterpriseLabel || "Cash"}</div>
         <div>
           {viewSlipData?.slipData.length > 0 ? (
             <div className="flex flex-col">

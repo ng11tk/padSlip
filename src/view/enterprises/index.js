@@ -45,11 +45,11 @@ const Enterprises = () => {
         {enterpriseList.length > 0 &&
           enterpriseList.map((eachEnterprise) => {
             return (
-              <Link to={`/enterprises/${eachEnterprise.id}`}>
-                <div
-                  key={eachEnterprise.id}
-                  className="w-full bg-slate-400 p-2"
-                >
+              <Link
+                to={`/enterprises/${eachEnterprise.id}`}
+                key={eachEnterprise.id}
+              >
+                <div className="w-full bg-slate-400 p-2">
                   <div className="flex justify-between items-start flex-col">
                     <div>
                       <span>Ent. Name :</span>&nbsp;
