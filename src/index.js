@@ -6,10 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "https://legal-lamprey-80.hasura.app/v1/graphql",
+  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
   headers: {
-    "x-hasura-admin-secret":
-      "zbhpeObcxIjCcva3tyUhIpkcwA2FV2UgkVTO2xdQ0uy6qHMQzcJ79AOOSIGTyMpR",
+    "x-hasura-admin-secret": process.env.REACT_APP_HASURA_ADMIN_SECRET,
   },
   cache: new InMemoryCache(),
 });
