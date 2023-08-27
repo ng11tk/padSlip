@@ -19,3 +19,16 @@ export const INSERT_SLIP_DETAILS = gql`
     }
   }
 `;
+
+export const INSERT_ENTERPRISE_DETAILS = gql`
+  mutation INSERT_ENTERPRISE_DETAILS(
+    $label: String!
+    $organizationId: String!
+  ) {
+    insert_enterprises_enterprise_one(
+      object: { label: $label, organizationId: $organizationId }
+    ) {
+      id
+    }
+  }
+`;

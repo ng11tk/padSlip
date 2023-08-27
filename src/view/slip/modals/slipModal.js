@@ -140,8 +140,6 @@ const SlipModal = ({ showModal, closeModal }) => {
     openNotification(alerts.SUCCESS, "Slip sent successfully.", 3);
   };
 
-  console.log("🚀 ~ file: index.js:12 ~ Slip ~ itemList:", itemList);
-
   return (
     <ModalContainer
       bodyStyle={{ background: "#2F3B52" }}
