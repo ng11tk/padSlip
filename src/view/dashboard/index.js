@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import CreateSlipModal from "../slip/modals/slipModal";
 import { GET_SLIPS } from "../../schema/queries";
 import ViewSlipModal from "./modals/slipDetails";
+import moment from "moment";
 
 const Dashboard = () => {
   const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
@@ -24,6 +25,14 @@ const Dashboard = () => {
       setSlipData(result);
     },
   });
+
+  // handler
+  const dateConverter = (date) => {
+    var day = moment.unix(date);
+
+    const dateFormat = day.format("dddd MMMM Do YYYY, h:mm:ss a");
+    return dateFormat;
+  };
 
   // modal close
   const closeCreateSlipModal = () => {
@@ -69,9 +78,10 @@ const Dashboard = () => {
                     <span>Total amount :</span>&nbsp;
                     <span>{slip.totalAmount}</span>
                   </div>
-                  {/* <div>
-                <span>Last slip :</span>&nbsp;<span>{slip.lastUpdate}</span>
-              </div> */}
+                  <div>
+                    <span>Last slip :</span>&nbsp;
+                    <span>{dateConverter(slip.created_at)}</span>
+                  </div>
                 </div>
               </div>
             );

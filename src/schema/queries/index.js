@@ -2,11 +2,15 @@ import { gql } from "@apollo/client";
 
 export const GET_SLIPS = gql`
   query GET_SLIPS($organizationId: String!) {
-    getSlips: slips_slip(where: { organizationId: { _eq: $organizationId } }) {
+    getSlips: slips_slip(
+      where: { organizationId: { _eq: $organizationId } }
+      order_by: { created_at: desc_nulls_first }
+    ) {
       id
       organizationId
       slipData
       totalAmount
+      created_at
       slip_enterprise {
         id
         label
@@ -40,6 +44,7 @@ export const GET_ENTERPRISE_SLIPS = gql`
         id
         slipData
         totalAmount
+        created_at
       }
     }
   }

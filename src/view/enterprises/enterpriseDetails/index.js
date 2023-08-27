@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { GET_ENTERPRISE_SLIPS } from "../../../schema/queries";
 import { useQuery } from "@apollo/client";
 import ViewSlipModal from "../../dashboard/modals/slipDetails";
+import moment from "moment";
 
 const EnterpriseDetails = () => {
   const { id } = useParams();
@@ -21,6 +22,14 @@ const EnterpriseDetails = () => {
       setEnterpriseSlips(result);
     },
   });
+
+  // handler
+  const dateConverter = (date) => {
+    var day = moment.unix(date);
+
+    const dateFormat = day.format("dddd MMMM Do YYYY, h:mm:ss a");
+    return dateFormat;
+  };
 
   // modals
   const closeViewSlipModal = () => {
@@ -60,6 +69,10 @@ const EnterpriseDetails = () => {
                   <div>
                     <span>Amount:</span>&nbsp;
                     <span>{slip?.totalAmount || 0}</span>
+                  </div>
+                  <div>
+                    <span>Slip Date :</span>&nbsp;
+                    <span>{dateConverter(slip.created_at)}</span>
                   </div>
                 </div>
               </div>
