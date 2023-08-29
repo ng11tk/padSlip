@@ -9,16 +9,7 @@ const CreateEnterprise = ({ showModal, closeModal }) => {
   const [enterpriseName, setEnterpriseName] = useState("");
 
   // mutation for slip insert
-  const [
-    insertEnterprise,
-    {
-      // eslint-disable-next-line no-unused-vars
-      loading: slipInsetLoading,
-      // eslint-disable-next-line no-unused-vars
-      error: slipInsertError,
-      // data: slipData,
-    },
-  ] = useMutation(INSERT_ENTERPRISE_DETAILS);
+  const [insertEnterprise] = useMutation(INSERT_ENTERPRISE_DETAILS);
 
   // handler
   const handleOnSubmit = () => {
@@ -54,24 +45,17 @@ const CreateEnterprise = ({ showModal, closeModal }) => {
         className="w-full h-96 gap-4 bg-white text-gray-600 
                       flex flex-col"
       >
-        <div
-          className="w-full overflow-scroll gap-2
-                        flex flex-col"
-        >
-          <div className="w-full flex flex-row items-center justify-between gap-3">
-            <div className="flex w-full gap-2">
-              <input
-                className="w-1/3 text-black border-y-black bg-slate-500 rounded px-2 py-1"
-                value={enterpriseName}
-                placeholder="Enter Item Name"
-                onChange={(e) => setEnterpriseName(e.target.value)}
-              />
-            </div>
-          </div>
-        </div>
+        <div className="text-center">Create new Enterprise</div>
+
+        <input
+          className="text-black border-y-black bg-slate-500 rounded px-2 py-1"
+          value={enterpriseName}
+          placeholder="Enter Enterprise Name"
+          onChange={(e) => setEnterpriseName(e.target.value)}
+        />
+
         <div className="flex items-center justify-center gap-4">
-          <button onClick={handleOnSubmit}>Print</button>
-          {/* <Link to={routes.dashboard}>Cancel</Link> */}
+          <button onClick={handleOnSubmit}>Save</button>
           <button onClick={closeModal}>Cancel</button>
         </div>
       </div>

@@ -44,12 +44,12 @@ const EnterpriseDetails = () => {
       <div className="text-left font-medium">
         <span>{enterpriseSlips[0]?.label}</span>
       </div>
-      <div
-        className="grid gap-4 mt-4
+      {enterpriseSlips[0]?.enterprise_slips.length > 0 ? (
+        <div
+          className="grid gap-4 mt-4
                     sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
-        {enterpriseSlips.length > 0 &&
-          enterpriseSlips[0]?.enterprise_slips.map((slip) => {
+        >
+          {enterpriseSlips[0]?.enterprise_slips.map((slip) => {
             return (
               <div
                 key={slip.id}
@@ -60,12 +60,6 @@ const EnterpriseDetails = () => {
                 }}
               >
                 <div className="flex justify-between items-start flex-col">
-                  {/* 
-                  //todo: use date in card too
-                  <div>
-                    <span>Ent. Name :</span>&nbsp;
-                    <span>{slip.label}</span>
-                  </div> */}
                   <div>
                     <span>Amount:</span>&nbsp;
                     <span>{slip?.totalAmount || 0}</span>
@@ -78,7 +72,11 @@ const EnterpriseDetails = () => {
               </div>
             );
           })}
-      </div>
+        </div>
+      ) : (
+        <div>Yet to create first slip!</div>
+      )}
+
       {openViewSlipModal && (
         <ViewSlipModal
           showModal={openViewSlipModal}

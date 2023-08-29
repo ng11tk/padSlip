@@ -20,6 +20,15 @@ const Enterprises = () => {
     },
   });
 
+  // handler
+  const RemainingBalance = (amountArray) => {
+    const total = amountArray.reduce(
+      (prevValue, currentValue) => prevValue + currentValue.balanceAmount,
+      0
+    );
+    return total;
+  };
+
   // modals
   const closeCreateEnterpriseModal = () => {
     setOpenCreateEnterpriseModal(false);
@@ -57,7 +66,9 @@ const Enterprises = () => {
                     </div>
                     <div>
                       <span>Remaining Balance :</span>&nbsp;
-                      <span>{eachEnterprise?.totalAmount || 0}</span>
+                      <span>
+                        {RemainingBalance(eachEnterprise?.enterprise_slips)}
+                      </span>
                     </div>
                   </div>
                 </div>

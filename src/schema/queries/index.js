@@ -28,6 +28,9 @@ export const FETCH_ENTERPRISE_LIST = gql`
     ) {
       id
       label
+      enterprise_slips {
+        balanceAmount
+      }
     }
   }
 `;
