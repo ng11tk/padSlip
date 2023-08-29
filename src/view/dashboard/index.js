@@ -75,11 +75,19 @@ const Dashboard = () => {
                     <span>{slip.slip_enterprise.label}</span>
                   </div>
                   <div>
-                    <span>Total amount :</span>&nbsp;
-                    <span>{slip.totalAmount}</span>
+                    <span>Total Amount :</span>&nbsp;
+                    <span>{slip?.totalAmount || 0}</span>
                   </div>
                   <div>
-                    <span>Last slip :</span>&nbsp;
+                    <span>Received Amount :</span>&nbsp;
+                    <span>{slip?.receivedAmount || 0}</span>
+                  </div>
+                  <div>
+                    <span>Balance Amount :</span>&nbsp;
+                    <span>{slip?.balanceAmount || 0}</span>
+                  </div>
+                  <div>
+                    <span>Last Slip :</span>&nbsp;
                     <span>{dateConverter(slip.created_at)}</span>
                   </div>
                 </div>

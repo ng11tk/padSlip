@@ -16,10 +16,11 @@ const SlipModal = ({ showModal, closeModal }) => {
     quantity: null,
   };
 
+  const [merchantList, setMerchantList] = useState([]);
   const [merchantName, setMerchantName] = useState("");
   const [itemList, setItemList] = useState([itemObj]);
   const [totalAmount, setTotalAmount] = useState(0);
-  const [merchantList, setMerchantList] = useState([]);
+  const [receivedAmount, setReceivedAmount] = useState(0);
 
   // fetch enterprise list
   const {
@@ -128,16 +129,31 @@ const SlipModal = ({ showModal, closeModal }) => {
     if (!isListValid) {
       return openNotification(alerts.ERROR, "Please fill all item details", 3);
     }
+
+    const insertObject = {
+      enterpriseId: merchantName,
+      organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
+      slipData: itemList,
+      totalAmount: totalAmount,
+      receivedAmount: receivedAmount,
+      balanceAmount: totalAmount - receivedAmount,
+    };
+
     insertSlip({
       variables: {
-        enterpriseId: merchantName,
-        organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
-        slipData: itemList,
-        totalAmount: totalAmount,
+        object: insertObject,
       },
       onCompleted: closeModal,
     });
     openNotification(alerts.SUCCESS, "Slip sent successfully.", 3);
+  };
+
+  const handleReceivedAmount = (e) => {
+    const value = e.target.value || 0;
+    // if (!/[0-9]/.test(event.key)) {
+    //     event.preventDefault();
+    //   }
+    setReceivedAmount(value);
   };
 
   return (
@@ -193,7 +209,7 @@ const SlipModal = ({ showModal, closeModal }) => {
                 <div className="flex w-full gap-2">
                   <input
                     className="w-1/3 text-black border-y-black bg-slate-500 rounded px-2 py-1"
-                    value={eachItem?.itemName}
+                    value={eachItem?.itemName || ""}
                     placeholder="Enter Item Name"
                     onChange={(e) =>
                       handleOnChange(e, "itemName", eachItem, index)
@@ -201,13 +217,13 @@ const SlipModal = ({ showModal, closeModal }) => {
                   />
                   <input
                     className="w-1/3 text-black border-y-black bg-slate-500 rounded px-2 py-1"
-                    value={eachItem?.rate}
+                    value={eachItem?.rate || 0}
                     onChange={(e) => handleOnChange(e, "rate", eachItem, index)}
                     placeholder="Enter Item Rate"
                   />
                   <input
                     className="w-1/3 text-black border-y-black bg-slate-500 rounded px-2 py-1"
-                    value={eachItem?.quantity}
+                    value={eachItem?.quantity || 0}
                     onChange={(e) =>
                       handleOnChange(e, "quantity", eachItem, index)
                     }
@@ -223,14 +239,38 @@ const SlipModal = ({ showModal, closeModal }) => {
               </div>
             );
           })}
-          <div className="w-full flex justify-between">
+          <div className="w-full flex justify-between items-center">
             <div className="cursor-pointer" onClick={() => handleAddItem()}>
               + Add item
             </div>
+            <div className="flex items-center gap-4">
+              <div>Received Amount :</div>
+              <input
+                className="w-1/3 h-fit text-black border-y-black bg-slate-500 rounded px-2 py-1"
+                type="number"
+                value={receivedAmount}
+                onChange={(e) => handleReceivedAmount(e)}
+                // onKeyPress={(event) => {
+                //   if (!/[0-9]/.test(event.key)) {
+                //     event.preventDefault();
+                //   }
+                // }}
+              />
+            </div>
             {itemList.length > 0 && (
               <div>
-                <span>Total :</span>
-                <span>{totalAmount}</span>
+                <div>
+                  <span>Total Amount :</span>
+                  <span>{totalAmount}</span>
+                </div>
+                <div>
+                  <span>Received Amount :</span>
+                  <span>{receivedAmount}</span>
+                </div>
+                <div>
+                  <span>Balance Amount :</span>
+                  <span>{totalAmount - receivedAmount}</span>
+                </div>
               </div>
             )}
           </div>

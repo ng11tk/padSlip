@@ -10,6 +10,8 @@ export const GET_SLIPS = gql`
       organizationId
       slipData
       totalAmount
+      receivedAmount
+      balanceAmount
       created_at
       slip_enterprise {
         id
