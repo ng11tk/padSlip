@@ -49,6 +49,8 @@ export const GET_ENTERPRISE_SLIPS = gql`
         id
         slipData
         totalAmount
+        receivedAmount
+        balanceAmount
         created_at
       }
     }

@@ -65,6 +65,14 @@ const EnterpriseDetails = () => {
                     <span>{slip?.totalAmount || 0}</span>
                   </div>
                   <div>
+                    <span>Received Amount :</span>&nbsp;
+                    <span>{slip?.receivedAmount || 0}</span>
+                  </div>
+                  <div>
+                    <span>Balance Amount :</span>&nbsp;
+                    <span>{slip?.balanceAmount || 0}</span>
+                  </div>
+                  <div>
                     <span>Slip Date :</span>&nbsp;
                     <span>{dateConverter(slip.created_at)}</span>
                   </div>

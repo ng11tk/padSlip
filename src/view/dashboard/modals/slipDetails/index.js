@@ -20,10 +20,10 @@ const ViewSlipModal = ({
     >
       <div>
         <div className="text-center">{enterpriseLabel || "Cash"}</div>
-        <div>
+        <div className="mt-4">
           {viewSlipData?.slipData.length > 0 ? (
             <div className="flex flex-col">
-              <section>
+              <section className="font-bold">
                 <ul className="flex justify-between">
                   <li>Item</li>
                   <li>Rate</li>
@@ -50,9 +50,19 @@ const ViewSlipModal = ({
             "No data found"
           )}
         </div>
-        <div className="flex justify-end gap-4">
-          <span>Total Amount:&nbsp;</span>
-          <span>{viewSlipData?.totalAmount || 0}</span>
+        <div className="flex justify-between mt-4">
+          <div>
+            <span>Total Amount:&nbsp;</span>
+            <span>{viewSlipData?.totalAmount || 0}</span>
+          </div>
+          <div>
+            <span>Received Amount:&nbsp;</span>
+            <span>{viewSlipData?.receivedAmount || 0}</span>
+          </div>
+          <div>
+            <span>Balance Amount:&nbsp;</span>
+            <span>{viewSlipData?.balanceAmount || 0}</span>
+          </div>
         </div>
       </div>
     </ModalContainer>
