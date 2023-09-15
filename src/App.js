@@ -6,6 +6,8 @@ import routes from "./routes";
 import Enterprises from "./view/enterprises";
 import Header from "./components/common/header";
 import EnterpriseDetails from "./view/enterprises/enterpriseDetails";
+import Records from "./view/records";
+import Statistics from "./view/statistics";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
               path={routes.enterpriseDetails}
               element={<EnterpriseDetails />}
             />
+            <Route path={routes.records} element={<Records />} />
+            <Route path={routes.statistics} element={<Statistics />} />
           </Routes>
         </div>
       </div>

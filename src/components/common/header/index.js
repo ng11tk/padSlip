@@ -21,10 +21,10 @@ const Header = () => {
               <NavLink to={routes.enterprises}>Enterprises</NavLink>
             </li>
             <li>
-              <NavLink to={routes.dashboard}>About</NavLink>
+              <NavLink to={routes.records}>Records</NavLink>
             </li>
             <li>
-              <NavLink to={routes.dashboard}>Contact</NavLink>
+              <NavLink to={routes.statistics}>Statistics</NavLink>
             </li>
             <li>
               <NavLink to={routes.dashboard}>Org</NavLink>

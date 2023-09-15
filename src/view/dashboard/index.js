@@ -30,7 +30,7 @@ const Dashboard = () => {
   const dateConverter = (date) => {
     var day = moment.unix(date);
 
-    const dateFormat = day.format("dddd MMMM Do YYYY, h:mm:ss a");
+    const dateFormat = day.format("ddd MMM Do YYYY, h:mm a");
     return dateFormat;
   };
 

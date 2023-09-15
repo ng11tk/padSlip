@@ -45,7 +45,7 @@ export const GET_ENTERPRISE_SLIPS = gql`
     ) {
       id
       label
-      enterprise_slips {
+      enterprise_slips(order_by: { created_at: desc_nulls_first }) {
         id
         slipData
         totalAmount

@@ -1,5 +1,6 @@
 import React from "react";
 import ModalContainer from "../../../../components/common/modal";
+import moment from "moment";
 
 const ViewSlipModal = ({
   showModal,
@@ -7,7 +8,15 @@ const ViewSlipModal = ({
   enterpriseLabel,
   viewSlipData,
 }) => {
-  console.log("slip details", viewSlipData);
+  // console.log("slip details", viewSlipData);
+
+  // handler
+  const dateConverter = (date) => {
+    var day = moment.unix(date);
+
+    const dateFormat = day.format("ddd MMM Do YYYY, h:mm a");
+    return dateFormat;
+  };
   return (
     <ModalContainer
       // bodyStyle={{ background: "#2F3B52" }}
@@ -19,7 +28,10 @@ const ViewSlipModal = ({
       maskClosable={true}
     >
       <div>
-        <div className="text-center">{enterpriseLabel || "Cash"}</div>
+        <div className="text-center flex justify-between">
+          <div>{enterpriseLabel || "Cash"}</div>
+          <div>Date:&nbsp;{dateConverter(viewSlipData.created_at)}</div>
+        </div>
         <div className="mt-4">
           {viewSlipData?.slipData.length > 0 ? (
             <div className="flex flex-col">
