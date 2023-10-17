@@ -8,6 +8,7 @@ import Header from "./components/common/header";
 import EnterpriseDetails from "./view/enterprises/enterpriseDetails";
 import Records from "./view/records";
 import Statistics from "./view/statistics";
+import Settings from "./view/settings";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             />
             <Route path={routes.records} element={<Records />} />
             <Route path={routes.statistics} element={<Statistics />} />
+            <Route path={routes.settings} element={<Settings />} />
           </Routes>
         </div>
       </div>

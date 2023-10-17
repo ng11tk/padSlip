@@ -5,7 +5,7 @@ const routes = {
   enterpriseDetails: "/enterprises/:id",
   records: "/records",
   statistics: "/statistics",
-  organization: "/organization",
+  settings: "/settings",
 };
 
 export default routes;
