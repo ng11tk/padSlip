@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import CreateSlipModal from "../slip/modals/slipModal";
+import CreateSlipModal from "../slip/modals/createSlip/slipModal";
 import { GET_SLIPS } from "../../schema/queries";
-import ViewSlipModal from "./modals/slipDetails";
+import ViewSlipModal from "../slip/modals/viewSlip";
 import moment from "moment";
 
 const Dashboard = () => {
@@ -19,6 +19,10 @@ const Dashboard = () => {
   } = useQuery(GET_SLIPS, {
     variables: {
       organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
+      filterRange: {
+        _gte: moment().startOf("date").unix(),
+        _lte: moment().unix(),
+      },
     },
     onCompleted: (data) => {
       const result = data.getSlips;
@@ -30,7 +34,7 @@ const Dashboard = () => {
   const dateConverter = (date) => {
     var day = moment.unix(date);
 
-    const dateFormat = day.format("ddd MMM Do YYYY, h:mm a");
+    const dateFormat = day.format("ddd, MMM Do YYYY, h:mm a");
     return dateFormat;
   };
 
@@ -53,47 +57,52 @@ const Dashboard = () => {
       >
         +{" "}
       </div>
-
-      <div
-        className="grid gap-4 mt-4
+      <div className="mt-4">
+        {slipData.length > 0 && (
+          <div
+            className="grid gap-4 cursor-pointer
                     sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
-        {slipData.length > 0 &&
-          slipData.map((slip) => {
-            return (
-              <div
-                key={slip.id}
-                className="w-full bg-slate-400 p-2"
-                onClick={() => {
-                  setOpenViewSlipModal(true);
-                  setViewSlipData(slip);
-                }}
-              >
-                <div className="flex justify-between items-start flex-col">
-                  <div>
-                    <span>Ent. Name :</span>&nbsp;
-                    <span>{slip.slip_enterprise.label}</span>
-                  </div>
-                  <div>
-                    <span>Total Amount :</span>&nbsp;
-                    <span>{slip?.totalAmount || 0}</span>
-                  </div>
-                  <div>
-                    <span>Received Amount :</span>&nbsp;
-                    <span>{slip?.receivedAmount || 0}</span>
-                  </div>
-                  <div>
-                    <span>Balance Amount :</span>&nbsp;
-                    <span>{slip?.balanceAmount || 0}</span>
-                  </div>
-                  <div>
-                    <span>Last Slip :</span>&nbsp;
-                    <span>{dateConverter(slip.created_at)}</span>
+          >
+            {slipData.map((slip) => {
+              return (
+                <div
+                  key={slip.id}
+                  className="w-full bg-slate-400 p-2"
+                  onClick={() => {
+                    setOpenViewSlipModal(true);
+                    setViewSlipData(slip);
+                  }}
+                >
+                  <div className="flex justify-between items-start flex-col">
+                    <div>
+                      <span>Ent. Name :</span>&nbsp;
+                      <span>{slip.slip_enterprise.label}</span>
+                    </div>
+                    <div>
+                      <span>Total Amount :</span>&nbsp;
+                      <span>{slip?.totalAmount || 0}</span>
+                    </div>
+                    <div>
+                      <span>Received Amount :</span>&nbsp;
+                      <span>{slip?.receivedAmount || 0}</span>
+                    </div>
+                    <div>
+                      <span>Balance Amount :</span>&nbsp;
+                      <span>{slip?.balanceAmount || 0}</span>
+                    </div>
+                    <div>
+                      <span>Last Slip :</span>&nbsp;
+                      <span>{dateConverter(slip.created_at)}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+        )}
+        {slipData.length === 0 && (
+          <div className="text-center">No Slip Found</div>
+        )}
       </div>
 
       {openCreateSlipModal && (

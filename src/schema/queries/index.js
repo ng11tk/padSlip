@@ -1,9 +1,15 @@
 import { gql } from "@apollo/client";
 
 export const GET_SLIPS = gql`
-  query GET_SLIPS($organizationId: String!) {
+  query GET_SLIPS(
+    $organizationId: String!
+    $filterRange: bigint_comparison_exp = {}
+  ) {
     getSlips: slips_slip(
-      where: { organizationId: { _eq: $organizationId } }
+      where: {
+        organizationId: { _eq: $organizationId }
+        created_at: $filterRange
+      }
       order_by: { created_at: desc_nulls_first }
     ) {
       id

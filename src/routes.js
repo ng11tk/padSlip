@@ -3,8 +3,9 @@ const routes = {
   padSlip: "/padSlip",
   enterprises: "/enterprises",
   enterpriseDetails: "/enterprises/:id",
-  records: "records",
-  statistics: "statistics",
+  records: "/records",
+  statistics: "/statistics",
+  organization: "/organization",
 };
 
 export default routes;

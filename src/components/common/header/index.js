@@ -27,7 +27,7 @@ const Header = () => {
               <NavLink to={routes.statistics}>Statistics</NavLink>
             </li>
             <li>
-              <NavLink to={routes.dashboard}>Org</NavLink>
+              <NavLink to={routes.organization}>Org</NavLink>
             </li>
           </ul>
         </div>

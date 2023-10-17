@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { GET_ENTERPRISE_SLIPS } from "../../../schema/queries";
 import { useQuery } from "@apollo/client";
-import ViewSlipModal from "../../dashboard/modals/slipDetails";
 import moment from "moment";
+import ViewSlipModal from "../../slip/modals/viewSlip";
 
 const EnterpriseDetails = () => {
   const { id } = useParams();

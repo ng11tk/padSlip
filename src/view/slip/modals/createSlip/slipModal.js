@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import ModalContainer from "../../../components/common/modal";
-import RemoveComponent from "../../../assets/remove";
-import openNotification from "../../../components/common/notification";
-import alerts from "../../../constants/alerts";
+import ModalContainer from "../../../../components/common/modal";
+import RemoveComponent from "../../../../assets/remove";
+import openNotification from "../../../../components/common/notification";
+import alerts from "../../../../constants/alerts";
 import { Select } from "antd";
 import { useMutation, useQuery } from "@apollo/client";
-import { INSERT_SLIP_DETAILS } from "../../../schema/mutations";
-import { FETCH_ENTERPRISE_LIST } from "../../../schema/queries";
+import { INSERT_SLIP_DETAILS } from "../../../../schema/mutations";
+import { FETCH_ENTERPRISE_LIST } from "../../../../schema/queries";
 const { Option } = Select;
 
 const SlipModal = ({ showModal, closeModal }) => {
