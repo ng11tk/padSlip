@@ -29,7 +29,7 @@ const ViewSlipModal = ({
     >
       <div>
         <div className="text-center flex justify-between">
-          <div>{enterpriseLabel || "Cash"}</div>
+          <div className="font-bold">{enterpriseLabel || "Cash"}</div>
           <div>Date:&nbsp;{dateConverter(viewSlipData.created_at)}</div>
         </div>
         <div className="mt-4">
