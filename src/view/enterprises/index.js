@@ -39,9 +39,11 @@ const Enterprises = () => {
 
   return (
     <div className="w-full h-full">
+      <div className="text-left font-medium	">Enterprise</div>
+
       <div
         key={""}
-        className="bg-slate-400 p-2 cursor-pointer"
+        className="bg-slate-400 p-2 mt-4 cursor-pointer"
         onClick={() => setOpenCreateEnterpriseModal(true)}
       >
         +{" "}

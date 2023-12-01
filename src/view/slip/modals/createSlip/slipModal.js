@@ -196,7 +196,7 @@ const SlipModal = ({ showModal, closeModal }) => {
           </Select>
         </div>
         <div
-          className="w-full overflow-scroll gap-2
+          className="w-full overflow-auto gap-2
                         flex flex-col"
         >
           {itemList?.map((eachItem, index) => {
@@ -239,41 +239,41 @@ const SlipModal = ({ showModal, closeModal }) => {
               </div>
             );
           })}
-          <div className="w-full flex justify-between items-center">
-            <div className="cursor-pointer" onClick={() => handleAddItem()}>
-              + Add item
-            </div>
-            <div className="flex items-center gap-4">
-              <div>Received Amount :</div>
-              <input
-                className="w-1/3 h-fit text-black border-y-black bg-slate-500 rounded px-2 py-1"
-                type="number"
-                value={receivedAmount}
-                onChange={(e) => handleReceivedAmount(e)}
-                // onKeyPress={(event) => {
-                //   if (!/[0-9]/.test(event.key)) {
-                //     event.preventDefault();
-                //   }
-                // }}
-              />
-            </div>
-            {itemList.length > 0 && (
-              <div>
-                <div>
-                  <span>Total Amount :</span>
-                  <span>{totalAmount}</span>
-                </div>
-                <div>
-                  <span>Received Amount :</span>
-                  <span>{receivedAmount}</span>
-                </div>
-                <div>
-                  <span>Balance Amount :</span>
-                  <span>{totalAmount - receivedAmount}</span>
-                </div>
-              </div>
-            )}
+        </div>
+        <div className="w-full flex justify-between items-center">
+          <div className="cursor-pointer" onClick={() => handleAddItem()}>
+            + Add item
           </div>
+          <div className="flex items-center gap-4">
+            <div>Received Amount :</div>
+            <input
+              className="w-1/3 h-fit text-black border-y-black bg-slate-500 rounded px-2 py-1"
+              type="number"
+              value={receivedAmount}
+              onChange={(e) => handleReceivedAmount(e)}
+              // onKeyPress={(event) => {
+              //   if (!/[0-9]/.test(event.key)) {
+              //     event.preventDefault();
+              //   }
+              // }}
+            />
+          </div>
+          {itemList.length > 0 && (
+            <div>
+              <div>
+                <span>Total Amount :</span>
+                <span>{totalAmount}</span>
+              </div>
+              <div>
+                <span>Received Amount :</span>
+                <span>{receivedAmount}</span>
+              </div>
+              <div>
+                <span>Balance Amount :</span>
+                <span>{totalAmount - receivedAmount}</span>
+              </div>
+            </div>
+          )}
         </div>
         <div className="flex items-center justify-center gap-4">
           <button onClick={handleOnSubmit}>Print</button>

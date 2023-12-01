@@ -14,8 +14,11 @@ const Statistics = () => {
   };
 
   return (
-    <div className="cursor-pointer" onClick={() => getData()}>
-      Coming Soon
+    <div className="h-full w-full">
+      <div className="text-left font-medium	">Statistics</div>
+      <div className="cursor-pointer mt-4" onClick={() => getData()}>
+        Coming Soon
+      </div>
     </div>
   );
 };

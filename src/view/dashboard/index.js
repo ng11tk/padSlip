@@ -51,8 +51,9 @@ const Dashboard = () => {
   if (error) return <p>Error : {error.message}</p>;
   return (
     <div className="w-full h-full">
+      <div className="text-left font-medium	">Dashboard</div>
       <div
-        className="bg-slate-400 p-2 cursor-pointer"
+        className="bg-slate-400 p-2 mt-4 cursor-pointer"
         onClick={() => setOpenCreateSlipModal(true)}
       >
         +{" "}
