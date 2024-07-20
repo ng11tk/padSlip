@@ -1,5 +1,6 @@
-import * as React from "react";
-const RemoveComponent = (props) => (
+import React from "react";
+
+export const RemoveComponent = (props) => (
   <svg
     fill="#000000"
     width="24px"
@@ -22,4 +23,3 @@ const RemoveComponent = (props) => (
     <rect x={0} y={0} width={36} height={36} fillOpacity={0} />
   </svg>
 );
-export default RemoveComponent;

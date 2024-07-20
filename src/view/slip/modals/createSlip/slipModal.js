@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from "react";
-import ModalContainer from "../../../../components/common/modal";
-import RemoveComponent from "../../../../assets/remove";
-import openNotification from "../../../../components/common/notification";
-import alerts from "../../../../constants/alerts";
+import React, { useCallback, useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { Select } from "antd";
 import { useMutation, useQuery } from "@apollo/client";
+
+import ModalContainer from "../../../../components/common/modal";
+import { RemoveComponent } from "../../../../assets/remove";
+import openNotification from "../../../../components/common/notification";
+import alerts from "../../../../constants/alerts";
 import { INSERT_SLIP_DETAILS } from "../../../../schema/mutations";
 import { FETCH_ENTERPRISE_LIST } from "../../../../schema/queries";
+
 const { Option } = Select;
 
 const SlipModal = ({ showModal, closeModal }) => {
   const itemObj = {
+    id: uuidv4(),
     itemName: "",
     rate: null,
     quantity: null,
@@ -52,29 +56,31 @@ const SlipModal = ({ showModal, closeModal }) => {
   ] = useMutation(INSERT_SLIP_DETAILS);
 
   // handle item values
-  const handleOnChange = (e, field, eachItem, index) => {
-    const value = e.target.value;
-    let parseValue;
-    if (field === "rate") {
-      parseValue = parseFloat(value) || 0;
-    } else if (field === "quantity") {
-      parseValue = parseInt(value) || 0;
-    } else {
-      parseValue = value;
+  const parseFieldValue = (value, field) => {
+    switch (field) {
+      case "rate":
+        return parseFloat(value) || 0;
+      case "quantity":
+        return parseInt(value, 10) || 0;
+      default:
+        return value;
     }
-    const updatedItem = { ...itemList[index], [field]: parseValue };
-    const updatedItemList = [
-      ...itemList.slice(0, index),
-      updatedItem,
-      ...itemList.slice(index + 1),
-    ];
+  };
+  const handleOnChange = (e, field, eachItem) => {
+    const { value } = e.target;
+    const parseValue = parseFieldValue(value, field);
+
+    const updatedItemList = itemList.map((item) =>
+      item.id === eachItem.id ? { ...item, [field]: parseValue } : item
+    );
+
     setItemList(updatedItemList);
   };
 
   // handle adding new item
-  const handleAddItem = () => {
-    const fetchItemList = itemList;
-    const lastItem = itemList[fetchItemList.length - 1];
+  const handleAddItem = useCallback(() => {
+    // const fetchItemList = itemList;
+    const lastItem = itemList[itemList.length - 1];
 
     if (lastItem?.itemName?.length > 0) {
       setItemList([...itemList, itemObj]);
@@ -86,22 +92,23 @@ const SlipModal = ({ showModal, closeModal }) => {
         3
       );
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemList]);
 
   // remove item from list
-  const removeItem = (index) => {
-    const fetchItemList = itemList;
-    if (fetchItemList.length > 1) {
-      setItemList([...itemList.slice(0, index), ...itemList.slice(index + 1)]);
-      return openNotification(alerts.SUCCESS, "Item removed successfully.", 3);
-    } else {
-      console.error("Minimum 1 item should be in list.");
-      return openNotification(
-        alerts.ERROR,
-        "Minimum 1 item should be in list.",
-        3
-      );
-    }
+  const removeItem = (itemId) => {
+    setItemList((prevList) => {
+      if (prevList.length <= 1) {
+        console.error("Minimum 1 item should be in list.");
+        openNotification(alerts.ERROR, "Minimum 1 item should be in list.", 3);
+        return prevList;
+      }
+
+      const updatedItemList = prevList.filter((item) => item.id !== itemId);
+
+      openNotification(alerts.SUCCESS, "Item removed successfully.", 3);
+      return updatedItemList;
+    });
   };
 
   // for calculating the total amount
@@ -187,8 +194,8 @@ const SlipModal = ({ showModal, closeModal }) => {
             placeholder="Enter Merchant Name"
           >
             {merchantList?.length > 0
-              ? merchantList.map((item, index) => (
-                  <React.Fragment key={index}>
+              ? merchantList.map((item) => (
+                  <React.Fragment key={item.id}>
                     <Option value={item.id}>{item.label}</Option>
                   </React.Fragment>
                 ))
@@ -202,7 +209,7 @@ const SlipModal = ({ showModal, closeModal }) => {
           {itemList?.map((eachItem, index) => {
             return (
               <div
-                key={index}
+                key={eachItem.id}
                 className="w-full flex flex-row items-center justify-between gap-3"
               >
                 <div className="w-1/10">{`${index + 1}.`}</div>
@@ -211,28 +218,24 @@ const SlipModal = ({ showModal, closeModal }) => {
                     className="w-1/3 text-black border-y-black bg-slate-500 rounded px-2 py-1"
                     value={eachItem?.itemName || ""}
                     placeholder="Enter Item Name"
-                    onChange={(e) =>
-                      handleOnChange(e, "itemName", eachItem, index)
-                    }
+                    onChange={(e) => handleOnChange(e, "itemName", eachItem)}
                   />
                   <input
                     className="w-1/3 text-black border-y-black bg-slate-500 rounded px-2 py-1"
                     value={eachItem?.rate || 0}
-                    onChange={(e) => handleOnChange(e, "rate", eachItem, index)}
+                    onChange={(e) => handleOnChange(e, "rate", eachItem)}
                     placeholder="Enter Item Rate"
                   />
                   <input
                     className="w-1/3 text-black border-y-black bg-slate-500 rounded px-2 py-1"
                     value={eachItem?.quantity || 0}
-                    onChange={(e) =>
-                      handleOnChange(e, "quantity", eachItem, index)
-                    }
+                    onChange={(e) => handleOnChange(e, "quantity", eachItem)}
                     placeholder="Enter Item Quantity"
                   />
                 </div>
                 <div
                   className="cursor-pointer"
-                  onClick={() => removeItem(index)}
+                  onClick={() => removeItem(eachItem.id)}
                 >
                   <RemoveComponent />
                 </div>
@@ -251,11 +254,6 @@ const SlipModal = ({ showModal, closeModal }) => {
               type="number"
               value={receivedAmount}
               onChange={(e) => handleReceivedAmount(e)}
-              // onKeyPress={(event) => {
-              //   if (!/[0-9]/.test(event.key)) {
-              //     event.preventDefault();
-              //   }
-              // }}
             />
           </div>
           {itemList.length > 0 && (
@@ -277,7 +275,6 @@ const SlipModal = ({ showModal, closeModal }) => {
         </div>
         <div className="flex items-center justify-center gap-4">
           <button onClick={handleOnSubmit}>Print</button>
-          {/* <Link to={routes.dashboard}>Cancel</Link> */}
           <button onClick={closeModal}>Cancel</button>
         </div>
       </div>

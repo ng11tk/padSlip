@@ -6,7 +6,7 @@ import ViewSlipModal from "../slip/modals/viewSlip";
 import CreateSlipModal from "../slip/modals/createSlip/slipModal";
 
 const Records = () => {
-  const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
+  // const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
   const [openViewSlipModal, setOpenViewSlipModal] = useState(false);
   const [viewSlipData, setViewSlipData] = useState([]);
   const [slipData, setSlipData] = useState([]);
@@ -35,9 +35,9 @@ const Records = () => {
   };
 
   // modal close
-  const closeCreateSlipModal = () => {
-    setOpenCreateSlipModal(false);
-  };
+  // const closeCreateSlipModal = () => {
+  //   setOpenCreateSlipModal(false);
+  // };
 
   const closeViewSlipModal = () => {
     setOpenViewSlipModal(false);
@@ -49,12 +49,12 @@ const Records = () => {
     <div className="w-full h-full">
       <div className="text-left font-medium	">Records</div>
 
-      <div
+      {/* <div
         className="bg-slate-400 p-2 mt-4 cursor-pointer"
         onClick={() => setOpenCreateSlipModal(true)}
       >
         +{" "}
-      </div>
+      </div> */}
       <div className="mt-4">
         {slipData.length > 0 && (
           <div
@@ -103,12 +103,12 @@ const Records = () => {
         )}
       </div>
 
-      {openCreateSlipModal && (
+      {/* {openCreateSlipModal && (
         <CreateSlipModal
           showModal={openCreateSlipModal}
           closeModal={closeCreateSlipModal}
         />
-      )}
+      )} */}
       {openViewSlipModal && (
         <ViewSlipModal
           showModal={openViewSlipModal}
