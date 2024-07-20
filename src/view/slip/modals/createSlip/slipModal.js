@@ -34,7 +34,7 @@ const SlipModal = ({ showModal, closeModal }) => {
       organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
     },
     onCompleted: (data) => {
-      const result = data.enterpriseDetails;
+      const result = data?.enterpriseDetails;
       setMerchantList(result);
     },
   });

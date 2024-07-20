@@ -4,6 +4,7 @@ import { GET_ENTERPRISE_SLIPS } from "../../../schema/queries";
 import { useQuery } from "@apollo/client";
 import moment from "moment";
 import ViewSlipModal from "../../slip/modals/viewSlip";
+import { InternationalRupeeFormat } from "../../../components/common/InternationalRupeeFormat";
 
 const EnterpriseDetails = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ const EnterpriseDetails = () => {
       organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
     },
     onCompleted: (data) => {
-      const result = data?.enterpriseSlips || [];
+      const result = data?.enterpriseSlips[0] || [];
       setEnterpriseSlips(result);
     },
   });
@@ -31,6 +32,22 @@ const EnterpriseDetails = () => {
     return dateFormat;
   };
 
+  const remainingBalance = (amountArray) => {
+    const total = amountArray?.reduce(
+      (prevValue, currentValue) => prevValue + currentValue?.balanceAmount ?? 0,
+      0
+    );
+    return InternationalRupeeFormat(total);
+  };
+
+  const totalBusiness = (amountArray) => {
+    const total = amountArray?.reduce(
+      (prevValue, currentValue) => prevValue + currentValue?.totalAmount ?? 0,
+      0
+    );
+    return InternationalRupeeFormat(total);
+  };
+
   // modals
   const closeViewSlipModal = () => {
     setOpenViewSlipModal(false);
@@ -41,15 +58,43 @@ const EnterpriseDetails = () => {
 
   return (
     <div className="w-full h-full">
-      <div className="text-left font-medium">
-        <span>{enterpriseSlips[0]?.label}</span>
+      <div className="flex justify-between">
+        <ol className="text-left font-medium">
+          <li>
+            <span>Enterprise Name : </span>
+            <span>{enterpriseSlips?.label ?? "N/a"}</span>
+          </li>
+          <li>
+            <span>Enterprise Address : </span>
+            <span>{enterpriseSlips?.address ?? "N/a"}</span>
+          </li>
+          <li>
+            <span>Phone : </span>
+            <span>{enterpriseSlips?.phone ?? "N/a"}</span>
+          </li>
+          <li>
+            <span>Proprietor : </span>
+            <span>{enterpriseSlips?.proprietor ?? "N/a"}</span>
+          </li>
+        </ol>
+        <ol className="text-end">
+          <li>
+            <span>Balance Amount : </span>
+            <span>{remainingBalance(enterpriseSlips?.enterprise_slips)}</span>
+          </li>
+          <li>
+            <span>Total Business Amount : </span>
+            <span>{totalBusiness(enterpriseSlips?.enterprise_slips)}</span>
+          </li>
+        </ol>
       </div>
-      {enterpriseSlips[0]?.enterprise_slips.length > 0 ? (
+
+      {enterpriseSlips?.enterprise_slips?.length > 0 ? (
         <div
           className="grid gap-4 mt-4
                     sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
-          {enterpriseSlips[0]?.enterprise_slips.map((slip) => {
+          {enterpriseSlips?.enterprise_slips.map((slip) => {
             return (
               <div
                 key={slip.id}
@@ -89,7 +134,7 @@ const EnterpriseDetails = () => {
         <ViewSlipModal
           showModal={openViewSlipModal}
           closeModal={closeViewSlipModal}
-          enterpriseLabel={enterpriseSlips[0].label}
+          enterpriseLabel={enterpriseSlips.label}
           viewSlipData={viewSlipData}
         />
       )}

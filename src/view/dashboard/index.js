@@ -92,7 +92,7 @@ const Dashboard = () => {
                       <span>{slip?.balanceAmount || 0}</span>
                     </div>
                     <div>
-                      <span>Last Slip :</span>&nbsp;
+                      <span>Date :</span>&nbsp;
                       <span>{dateConverter(slip.created_at)}</span>
                     </div>
                   </div>

@@ -51,6 +51,9 @@ export const GET_ENTERPRISE_SLIPS = gql`
     ) {
       id
       label
+      address
+      phone
+      proprietor
       enterprise_slips(order_by: { created_at: desc_nulls_first }) {
         id
         slipData
