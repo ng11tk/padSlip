@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FETCH_ENTERPRISE_LIST } from "../../schema/queries";
 import { useQuery } from "@apollo/client";
 import CreateEnterprise from "./modals/createEnterprise";
@@ -8,6 +8,8 @@ const Enterprises = () => {
   const [enterpriseList, setEnterpriseList] = useState([]);
   const [openCreateEnterpriseModal, setOpenCreateEnterpriseModal] =
     useState(false);
+  const [searchEnterprise, setSearchEnterprise] = useState("");
+  const [filteredEnterpriseList, setFilteredEnterpriseList] = useState([]);
 
   //* fetch enterprise
   const { loading, error } = useQuery(FETCH_ENTERPRISE_LIST, {
@@ -17,6 +19,7 @@ const Enterprises = () => {
     onCompleted: (data) => {
       const result = data?.enterpriseDetails || [];
       setEnterpriseList(result);
+      setFilteredEnterpriseList(result);
     },
   });
 
@@ -34,27 +37,60 @@ const Enterprises = () => {
     setOpenCreateEnterpriseModal(false);
   };
 
+  // handler
+  const handleOnChange = (e) => {
+    const { value } = e.target;
+    setSearchEnterprise(value);
+  };
+
+  // search function
+  useEffect(() => {
+    const filteredEnterprise = enterpriseList.filter((eachEnterprise) => {
+      return eachEnterprise.label
+        .toLowerCase()
+        .includes(searchEnterprise.toLowerCase());
+    });
+
+    setFilteredEnterpriseList(filteredEnterprise);
+  }, [enterpriseList, searchEnterprise]);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
   return (
     <div className="w-full h-full">
-      <div className="text-left font-medium	">Enterprise</div>
+      <div>
+        <div className="text-left font-medium	">Enterprise</div>
+        <div>
+          <input
+            style={{ border: "2px solid black" }}
+            value={searchEnterprise}
+            onChange={handleOnChange}
+          />
+          {/* <button
+            onClick={() => {
+              console.log("search button clicked.");
+            }}
+          >
+            Search
+          </button> */}
+        </div>
+      </div>
 
       <div
-        key={""}
-        className="bg-slate-400 p-2 mt-4 cursor-pointer"
+         className="bg-slate-400 p-2 mt-4 cursor-pointer"
         onClick={() => setOpenCreateEnterpriseModal(true)}
       >
         +{" "}
       </div>
-
-      <div
-        className="grid gap-4 mt-4
+      {!filteredEnterpriseList.length ? (
+        <div className="mt-4">Data not found</div>
+      ) : (
+        <div
+          className="grid gap-4 mt-4
                     sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-      >
-        {enterpriseList.length > 0 &&
-          enterpriseList.map((eachEnterprise) => {
+        >
+          {filteredEnterpriseList.map((eachEnterprise) => {
             return (
               <Link
                 to={`/enterprises/${eachEnterprise.id}`}
@@ -77,7 +113,8 @@ const Enterprises = () => {
               </Link>
             );
           })}
-      </div>
+        </div>
+      )}
 
       {openCreateEnterpriseModal && (
         <CreateEnterprise
@@ -90,6 +127,3 @@ const Enterprises = () => {
 };
 
 export default Enterprises;
-
-//todo: add new enterprise
-//todo: give search bar for enterprise
