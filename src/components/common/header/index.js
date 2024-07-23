@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import routes from "../../../routes";
 
 const Header = () => {
@@ -8,26 +8,26 @@ const Header = () => {
       className="h-20 p-4 w-full
                     flex justify-between items-center relative"
     >
-      <NavLink to={routes.dashboard} className="w-1/2 flex">
+      <Link to={routes.dashboard} className="w-1/2 flex">
         PadSlip
-      </NavLink>
+      </Link>
       <nav className="w-1/2">
         <div>
           <ul className="list-none flex gap-4">
             <li>
-              <NavLink to={routes.dashboard}>Home</NavLink>
+              <Link to={routes.dashboard}>Home</Link>
             </li>
             <li>
-              <NavLink to={routes.enterprises}>Enterprises</NavLink>
+              <Link to={routes.enterprises}>Enterprises</Link>
             </li>
             <li>
-              <NavLink to={routes.records}>Records</NavLink>
+              <Link to={routes.records}>Records</Link>
             </li>
             <li>
-              <NavLink to={routes.statistics}>Statistics</NavLink>
+              <Link to={routes.statistics}>Statistics</Link>
             </li>
             <li>
-              <NavLink to={routes.settings}>Org</NavLink>
+              <Link to={routes.settings}>Org</Link>
             </li>
           </ul>
         </div>
