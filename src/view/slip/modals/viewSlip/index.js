@@ -1,6 +1,6 @@
 import React from "react";
 import ModalContainer from "../../../../components/common/modal";
-import moment from "moment";
+import { EpochDateConverter } from "../../../../utils/dateConverter";
 
 const ViewSlipModal = ({
   showModal,
@@ -10,13 +10,6 @@ const ViewSlipModal = ({
 }) => {
   // console.log("slip details", viewSlipData);
 
-  // handler
-  const dateConverter = (date) => {
-    var day = moment.unix(date);
-
-    const dateFormat = day.format("ddd MMM Do YYYY, h:mm a");
-    return dateFormat;
-  };
   return (
     <ModalContainer
       // bodyStyle={{ background: "#2F3B52" }}
@@ -30,7 +23,7 @@ const ViewSlipModal = ({
       <div>
         <div className="text-center flex justify-between">
           <div className="font-bold">{enterpriseLabel || "Cash"}</div>
-          <div>Date:&nbsp;{dateConverter(viewSlipData.created_at)}</div>
+          <div>Date:&nbsp;{EpochDateConverter(viewSlipData.created_at)}</div>
         </div>
         <div className="mt-4">
           {viewSlipData?.slipData.length > 0 ? (

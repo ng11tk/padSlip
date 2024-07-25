@@ -78,7 +78,7 @@ const Enterprises = () => {
       </div>
 
       <div
-         className="bg-slate-400 p-2 mt-4 cursor-pointer"
+        className="bg-slate-400 p-2 mt-4 cursor-pointer"
         onClick={() => setOpenCreateEnterpriseModal(true)}
       >
         +{" "}

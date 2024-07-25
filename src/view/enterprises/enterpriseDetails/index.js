@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { GET_ENTERPRISE_SLIPS } from "../../../schema/queries";
 import { useQuery } from "@apollo/client";
-import moment from "moment";
 import ViewSlipModal from "../../slip/modals/viewSlip";
 import { InternationalRupeeFormat } from "../../../components/common/InternationalRupeeFormat";
+import { EpochDateConverter } from "../../../utils/dateConverter";
 
 const EnterpriseDetails = () => {
   const { id } = useParams();
@@ -23,14 +23,6 @@ const EnterpriseDetails = () => {
       setEnterpriseSlips(result);
     },
   });
-
-  // handler
-  const dateConverter = (date) => {
-    var day = moment.unix(date);
-
-    const dateFormat = day.format("ddd MMM Do YYYY, h:mm a");
-    return dateFormat;
-  };
 
   const remainingBalance = (amountArray) => {
     const total = amountArray?.reduce(
@@ -119,7 +111,7 @@ const EnterpriseDetails = () => {
                   </div>
                   <div>
                     <span>Slip Date :</span>&nbsp;
-                    <span>{dateConverter(slip.created_at)}</span>
+                    <span>{EpochDateConverter(slip.created_at)}</span>
                   </div>
                 </div>
               </div>

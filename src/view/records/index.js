@@ -1,15 +1,16 @@
 import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { GET_SLIPS } from "../../schema/queries";
-import moment from "moment";
 import ViewSlipModal from "../slip/modals/viewSlip";
-import CreateSlipModal from "../slip/modals/createSlip/slipModal";
+import { EpochDateConverter } from "../../utils/dateConverter";
+// import CreateSlipModal from "../slip/modals/createSlip/slipModal";
 
 const Records = () => {
   // const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
   const [openViewSlipModal, setOpenViewSlipModal] = useState(false);
   const [viewSlipData, setViewSlipData] = useState([]);
   const [slipData, setSlipData] = useState([]);
+  console.log("🚀 ~ Records ~ slipData:", slipData);
 
   //* fetch slips
   const {
@@ -27,13 +28,6 @@ const Records = () => {
   });
 
   // handler
-  const dateConverter = (date) => {
-    var day = moment.unix(date);
-
-    const dateFormat = day.format("ddd, MMM Do YYYY, h:mm a");
-    return dateFormat;
-  };
-
   // modal close
   // const closeCreateSlipModal = () => {
   //   setOpenCreateSlipModal(false);
@@ -90,7 +84,7 @@ const Records = () => {
                     </div>
                     <div>
                       <span>Date :</span>&nbsp;
-                      <span>{dateConverter(slip.created_at)}</span>
+                      <span>{EpochDateConverter(slip.created_at)}</span>
                     </div>
                   </div>
                 </div>

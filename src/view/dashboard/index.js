@@ -4,6 +4,7 @@ import CreateSlipModal from "../slip/modals/createSlip/slipModal";
 import { GET_SLIPS } from "../../schema/queries";
 import ViewSlipModal from "../slip/modals/viewSlip";
 import moment from "moment";
+import { EpochDateConverter } from "../../utils/dateConverter";
 
 const Dashboard = () => {
   const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
@@ -29,14 +30,6 @@ const Dashboard = () => {
       setSlipData(result);
     },
   });
-
-  // handler
-  const dateConverter = (date) => {
-    var day = moment.unix(date);
-
-    const dateFormat = day.format("ddd, MMM Do YYYY, h:mm a");
-    return dateFormat;
-  };
 
   // modal close
   const closeCreateSlipModal = () => {
@@ -93,7 +86,7 @@ const Dashboard = () => {
                     </div>
                     <div>
                       <span>Date :</span>&nbsp;
-                      <span>{dateConverter(slip.created_at)}</span>
+                      <span>{EpochDateConverter(slip.created_at)}</span>
                     </div>
                   </div>
                 </div>
