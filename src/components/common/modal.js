@@ -2,19 +2,31 @@ import React from "react";
 import { Modal } from "antd";
 import PropTypes from "prop-types";
 
-const ModalContainer = (props) => {
+const ModalContainer = ({
+  destroyOnClose,
+  className = "incident-modal-root",
+  visible = false,
+  width = "40%",
+  closeModal,
+  closable = true,
+  maskClosable = false,
+  zIndex = 1000,
+  footer = null,
+  children = "",
+  bodyStyle,
+}) => {
   return (
     <>
       <Modal
-        destroyOnClose={props.destroyOnClose}
-        className={props.className}
-        // bodyStyle={props.bodyStyle || { background: "#20293C" }}
-        open={props.visible}
-        width={props.width}
-        onCancel={props.closeModal}
-        closable={props.closable}
-        maskClosable={props.maskClosable ? props.maskClosable : false}
-        zIndex={props.zIndex || 1000}
+        destroyOnClose={destroyOnClose}
+        className={className}
+        // bodyStyle={bodyStyle || { background: "#20293C" }}
+        open={visible}
+        width={width}
+        onCancel={closeModal}
+        closable={closable}
+        maskClosable={maskClosable}
+        zIndex={zIndex}
         // closeIcon={
         //   <img
         //     className="mx-auto mt-2 focus:outline-none custom-modal-close"
@@ -24,21 +36,12 @@ const ModalContainer = (props) => {
         //     alt="close"
         //   />
         // }
-        footer={props.footer}
+        footer={footer}
       >
-        {props.children}
+        {children}
       </Modal>
     </>
   );
-};
-ModalContainer.defaultProps = {
-  visible: false,
-  width: "40%",
-  footer: null,
-  children: "",
-  closable: true,
-  className: "incident-modal-root",
-  bodyStyle: null,
 };
 
 ModalContainer.propTypes = {
