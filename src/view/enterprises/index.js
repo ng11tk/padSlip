@@ -60,21 +60,15 @@ const Enterprises = () => {
   return (
     <div className="w-full h-full">
       <div>
-        <div className="text-left font-medium	">Enterprise</div>
-        <div>
-          <input
-            style={{ border: "2px solid black" }}
-            value={searchEnterprise}
-            onChange={handleOnChange}
-          />
-          {/* <button
-            onClick={() => {
-              console.log("search button clicked.");
-            }}
-          >
-            Search
-          </button> */}
-        </div>
+        <div className="text-left font-medium">Enterprise</div>
+
+        <input
+          className="px-2"
+          style={{ border: "2px solid lightslategrey" }}
+          placeholder="Search Enterprise..."
+          value={searchEnterprise}
+          onChange={handleOnChange}
+        />
       </div>
 
       <div

@@ -10,13 +10,11 @@ export const INSERT_SLIP_DETAILS = gql`
 
 export const INSERT_ENTERPRISE_DETAILS = gql`
   mutation INSERT_ENTERPRISE_DETAILS(
-    $label: String!
-    $organizationId: String!
+    $object: enterprises_enterprise_insert_input!
   ) {
-    insert_enterprises_enterprise_one(
-      object: { label: $label, organizationId: $organizationId }
-    ) {
+    insert_enterprises_enterprise_one(object: $object) {
       id
+      label
     }
   }
 `;
