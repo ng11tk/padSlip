@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import CreateSlipModal from "../slip/modals/createSlip/slipModal";
-import { GET_SLIPS } from "../../schema/queries";
-import ViewSlipModal from "../slip/modals/viewSlip";
+import CreateSlipModal from "../slip/modals/createSlip/slipModal.js";
+import { GET_SLIPS } from "../../schema/queries/index.js";
+import ViewSlipModal from "../slip/modals/viewSlip/index.js";
 import moment from "moment";
-import { EpochDateConverter } from "../../utils/dateConverter";
+import { EpochDateConverter } from "../../utils/dateConverter.js";
 
 const Dashboard = () => {
   const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);

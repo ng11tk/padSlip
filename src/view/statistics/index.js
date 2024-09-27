@@ -10,14 +10,14 @@ const Statistics = () => {
     };
 
     const resData = await axios.request(options);
-    console.log("🚀 ~ file: index.js:10 ~ getData ~ resData:", resData.data);
+    console.log("🚀 ~ file: index.js:10 ~ getData ~ resData:", resData);
   };
 
   return (
     <div className="h-full w-full">
       <div className="text-left font-medium	">Statistics</div>
-      <div className="cursor-pointer mt-4" onClick={() => getData()}>
-        Coming Soon
+      <div className="cursor-pointer mt-4" onClick={getData}>
+        Coming Soon...
       </div>
     </div>
   );

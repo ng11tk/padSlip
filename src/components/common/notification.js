@@ -2,7 +2,7 @@ import React from "react";
 import { notification } from "antd";
 
 import CancelWhiteIcon from "../../assets/cancel_white.svg";
-import alerts from "../../constants/alerts";
+import alerts from "../../constants/alerts.js";
 
 const openNotification = (
   type,
@@ -11,8 +11,8 @@ const openNotification = (
   title,
   customStyle
 ) => {
-  let className = "";
-  let header = title || null;
+  // let className = "";
+  // let header = title || null;
   let msg = message || null;
   let style = {};
   let key = `updatable-${Date.now()}`;

@@ -1,15 +1,15 @@
 import "./App.css";
 // import Slip from "./view/slip";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Dashboard from "./view/dashboard";
-import routes from "./routes";
-import Enterprises from "./view/enterprises";
-import Header from "./components/common/header";
-import EnterpriseDetails from "./view/enterprises/enterpriseDetails";
-import Records from "./view/records";
-import Statistics from "./view/statistics";
-import Settings from "./view/settings";
-import ErrorRoute from "./components/common/errorRoute";
+import Dashboard from "./view/dashboard/index.js";
+import routes from "./routes.js";
+import Enterprises from "./view/enterprises/index.js";
+import Header from "./components/common/header/index.js";
+import EnterpriseDetails from "./view/enterprises/enterpriseDetails/index.js";
+import Records from "./view/records/index.js";
+import Statistics from "./view/statistics/index.js";
+import Settings from "./view/settings/index.js";
+import ErrorRoute from "./components/common/errorRoute.js";
 
 function App() {
   return <RouterProvider router={appRouter} />;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ModalContainer from "../../../../components/common/modal";
+import ModalContainer from "../../../../components/common/modal.js";
 import { useMutation } from "@apollo/client";
-import { INSERT_ENTERPRISE_DETAILS } from "../../../../schema/mutations";
-import alerts from "../../../../constants/alerts";
-import openNotification from "../../../../components/common/notification";
+import { INSERT_ENTERPRISE_DETAILS } from "../../../../schema/mutations/index.js";
+import alerts from "../../../../constants/alerts.js";
+import openNotification from "../../../../components/common/notification.js";
 import _ from "lodash";
 
 const CreateEnterprise = ({ showModal, closeModal }) => {

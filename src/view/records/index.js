@@ -1,8 +1,8 @@
 import { useQuery } from "@apollo/client";
 import React, { useState } from "react";
-import { GET_SLIPS } from "../../schema/queries";
-import ViewSlipModal from "../slip/modals/viewSlip";
-import { EpochDateConverter } from "../../utils/dateConverter";
+import { GET_SLIPS } from "../../schema/queries/index.js";
+import ViewSlipModal from "../slip/modals/viewSlip/index.js";
+import { EpochDateConverter } from "../../utils/dateConverter.js";
 // import CreateSlipModal from "../slip/modals/createSlip/slipModal";
 
 const Records = () => {
@@ -10,7 +10,6 @@ const Records = () => {
   const [openViewSlipModal, setOpenViewSlipModal] = useState(false);
   const [viewSlipData, setViewSlipData] = useState([]);
   const [slipData, setSlipData] = useState([]);
-  console.log("🚀 ~ Records ~ slipData:", slipData);
 
   //* fetch slips
   const {

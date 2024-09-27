@@ -3,12 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 import { Select } from "antd";
 import { useMutation, useQuery } from "@apollo/client";
 
-import ModalContainer from "../../../../components/common/modal";
-import { RemoveComponent } from "../../../../assets/remove";
-import openNotification from "../../../../components/common/notification";
-import alerts from "../../../../constants/alerts";
-import { INSERT_SLIP_DETAILS } from "../../../../schema/mutations";
-import { FETCH_ENTERPRISE_LIST } from "../../../../schema/queries";
+import ModalContainer from "../../../../components/common/modal.js";
+import { RemoveComponent } from "../../../../assets/remove.js";
+import openNotification from "../../../../components/common/notification.js";
+import alerts from "../../../../constants/alerts.js";
+import { INSERT_SLIP_DETAILS } from "../../../../schema/mutations/index.js";
+import { FETCH_ENTERPRISE_LIST } from "../../../../schema/queries/index.js";
 
 const { Option } = Select;
 

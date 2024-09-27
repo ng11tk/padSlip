@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { FETCH_ENTERPRISE_LIST } from "../../schema/queries";
+import { FETCH_ENTERPRISE_LIST } from "../../schema/queries/index.js";
 import { useQuery } from "@apollo/client";
-import CreateEnterprise from "./modals/createEnterprise";
+import CreateEnterprise from "./modals/createEnterprise/index.js";
 import { Link } from "react-router-dom";
 
 const Enterprises = () => {

@@ -1,13 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import routes from "../../../routes";
+import routes from "../../../routes.js";
 
 const Header = () => {
   return (
-    <header
-      className="h-20 p-4 w-full
-                    flex justify-between items-center relative"
-    >
+    <header className="h-20 p-4 w-full flex justify-between items-center relative">
       <Link to={routes.dashboard} className="w-1/2 flex">
         PadSlip
       </Link>

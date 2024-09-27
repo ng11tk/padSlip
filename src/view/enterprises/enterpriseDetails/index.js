@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { GET_ENTERPRISE_SLIPS } from "../../../schema/queries";
+import { GET_ENTERPRISE_SLIPS } from "../../../schema/queries/index.js";
 import { useQuery } from "@apollo/client";
-import ViewSlipModal from "../../slip/modals/viewSlip";
-import { InternationalRupeeFormat } from "../../../components/common/InternationalRupeeFormat";
-import { EpochDateConverter } from "../../../utils/dateConverter";
+import ViewSlipModal from "../../slip/modals/viewSlip/index.js";
+import { InternationalRupeeFormat } from "../../../components/common/InternationalRupeeFormat.jsx";
+import { EpochDateConverter } from "../../../utils/dateConverter.js";
 
 const EnterpriseDetails = () => {
   const { id } = useParams();

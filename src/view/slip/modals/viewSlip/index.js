@@ -1,6 +1,6 @@
 import React from "react";
-import ModalContainer from "../../../../components/common/modal";
-import { EpochDateConverter } from "../../../../utils/dateConverter";
+import ModalContainer from "../../../../components/common/modal.js";
+import { EpochDateConverter } from "../../../../utils/dateConverter.js";
 
 const ViewSlipModal = ({
   showModal,
