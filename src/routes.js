@@ -6,6 +6,7 @@ const routes = {
   records: "/records",
   statistics: "/statistics",
   settings: "/settings",
+  login: "/login"
 };
 
 export default routes;

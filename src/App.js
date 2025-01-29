@@ -10,6 +10,7 @@ import Records from "./view/records/index.js";
 import Statistics from "./view/statistics/index.js";
 import Settings from "./view/settings/index.js";
 import ErrorRoute from "./components/common/errorRoute.js";
+import Login from "./view/login/index.js";
 
 function App() {
   return <RouterProvider router={appRouter} />;
@@ -35,10 +36,10 @@ const appRouter = createBrowserRouter([
         path: routes.dashboard,
         element: <Dashboard />,
       },
-      // {
-      //   path: routes.padSlip,
-      //   element: <Slip />,
-      // },
+      {
+        path: routes.login,
+        element: <Login />,
+      },
       {
         path: routes.enterprises,
         element: <Enterprises />,
