@@ -4,10 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "install": "cd padSlip && yarn && cd ../padSlip-Backend && yarn",
+        "install": "cd padSlip && yarn && cd ../server && yarn",
         "dev:front": "cd padSlip && yarn start",
-        "dev": "concurrently \"nvm use system\" \"cd padSlip && yarn start\" \"cd padSlip-Backend && yarn dev\"",
-        "dev:server": "cd padSlip-Backend && yarn dev"
+        "dev": "concurrently \"nvm use system\" \"cd padSlip && yarn start\" \"cd server && yarn dev\"",
+        "dev:server": "cd server && yarn dev"
     },
     "author": "",
     "license": "ISC",
