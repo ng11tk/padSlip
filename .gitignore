@@ -8,4 +8,11 @@ nginx.conf
 
 postgresql
 
+# Scripts Output Files
+server/scripts/supplier_data.xlsx
+server/scripts/supplier_bulk_insert_response_*
+server/protected/*
+
+/frontend/.next
+/frontend/build
 *.DS_Store
