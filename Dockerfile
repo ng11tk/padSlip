@@ -2,14 +2,21 @@ FROM node:18.18-alpine AS base
 
 # 1. Install dependencies only when needed
 FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+
+# Install necessary dependencies
 RUN apk add --no-cache libc6-compat
 
+# Set the working directory
 WORKDIR /app/padSlip
 
-# Install dependencies
+# Copy package.json and yarn.lock first to leverage Docker cache
 COPY ./padSlip/package.json ./padSlip/yarn.lock ./
-RUN yarn --frozen-lockfile
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# # Copy the rest of the application code
+# COPY ./padSlip .
 
 # 2. Rebuild the source code only when needed
 FROM base AS builder
@@ -18,17 +25,7 @@ COPY --from=deps /app/padSlip/node_modules ./node_modules
 COPY ./padSlip .
 RUN yarn build
 
-# 3. Production image, copy all the files and run next
-FROM base AS runner
-WORKDIR /app/padSlip
-
-COPY --from=builder /app/padSlip/public ./public
-
-# # Automatically leverage output traces to reduce image size
-# # https://nextjs.org/docs/advanced-features/output-file-tracing
-# COPY --from=builder /app/padSlip/.next/standalone ./
-# COPY --from=builder /app/padSlip/.next/static ./.next/static
-
+# Expose the port the app runs on
 EXPOSE 3000
 
 # Backend Setup
@@ -60,7 +57,8 @@ COPY ./server ./
 
 EXPOSE 5000
 
+# Command to run the application
 WORKDIR /app
 RUN yarn global add concurrently
 
-CMD ["concurrently", "\"cd padSlip && node server.js\"", "\"cd server && yarn dev\""]
+CMD ["concurrently", "\"cd padSlip && yarn start\"", "\"cd server && yarn dev\""]
