@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Select } from "antd";
+import { DatePicker, Segmented, Select } from "antd";
 import { useMutation, useQuery } from "@apollo/client";
 import ModalContainer from "../../../../components/common/modal.js";
 import { RemoveComponent } from "../../../../assets/remove.js";
@@ -29,6 +29,9 @@ const SlipModal = ({ showModal, closeModal }) => {
     const [itemList, setItemList] = useState([itemObj]);
     const [totalAmount, setTotalAmount] = useState(0);
     const [receivedAmount, setReceivedAmount] = useState(0);
+    const [slipType, setSlipType] = useState();
+    const [deliveryStatus, setDeliveryStatus] = useState();
+    const [deliveryDate, setDeliveryDate] = useState();
 
     //* fetch enterprise list
     const {
@@ -174,6 +177,9 @@ const SlipModal = ({ showModal, closeModal }) => {
             slipData: itemList,
             totalAmount: totalAmount,
             balanceAmount: totalAmount - receivedAmount,
+            slip_type: slipType,
+            delivery_date: deliveryDate,
+            delivery_status: deliveryStatus,
         };
         const paymentDetails = {
             amount_received: receivedAmount,
@@ -279,6 +285,40 @@ const SlipModal = ({ showModal, closeModal }) => {
                               ))
                             : null}
                     </Select>
+                </div>
+                <div className="flex justify-between">
+                    <div>
+                        <span>Slip Type: </span>
+                        <Segmented
+                            options={["Cash", "Order"]}
+                            defaultValue="Cash"
+                            onChange={(value) => {
+                                console.log(value.toLowerCase()); // string
+                                setSlipType(value.toLowerCase());
+                            }}
+                        />
+                    </div>
+                    <div>
+                        <span>Delivery Date: </span>
+                        <DatePicker
+                            onChange={(date, dateString) => {
+                                console.log(date, dateString);
+                                setDeliveryDate(dateString);
+                            }}
+                        />
+                    </div>
+
+                    <div>
+                        <span>Delivery Status: </span>
+                        <Segmented
+                            options={["Pending", "Completed"]}
+                            defaultValue={"Completed"}
+                            onChange={(value) => {
+                                console.log(value.toLowerCase()); // string
+                                setDeliveryStatus(value.toLowerCase());
+                            }}
+                        />
+                    </div>
                 </div>
                 <div
                     className="w-full overflow-auto gap-2
