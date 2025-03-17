@@ -5,9 +5,11 @@ import { GET_SLIPS } from "../../schema/queries/index.js";
 import ViewSlipModal from "../slip/modals/viewSlip/index.js";
 import moment from "moment";
 import { EpochDateConverter } from "../../utils/dateConverter.js";
+import ReceivedModal from "../slip/modals/receiveSlip/index.js";
 
 const Dashboard = () => {
     const [openCreateSlipModal, setOpenCreateSlipModal] = useState(false);
+    const [openReceivedModal, setOpenReceivedModal] = useState(false);
     const [openViewSlipModal, setOpenViewSlipModal] = useState(false);
     const [viewSlipData, setViewSlipData] = useState([]);
     const [slipData, setSlipData] = useState([]);
@@ -35,16 +37,18 @@ const Dashboard = () => {
     const closeCreateSlipModal = () => {
         setOpenCreateSlipModal(false);
     };
-
     const closeViewSlipModal = () => {
         setOpenViewSlipModal(false);
+    };
+    const closeReceivedModal = () => {
+        setOpenReceivedModal(false);
     };
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : {error.message}</p>;
     return (
         <div className="w-full h-full">
-            <div className="text-left font-medium	">Dashboard</div>
+            <div className="text-left font-medium">Dashboard</div>
             <div className="flex justify-between gap-1">
                 <div
                     className="bg-slate-400 p-2 mt-4 cursor-pointer grow"
@@ -54,18 +58,18 @@ const Dashboard = () => {
                 </div>
                 <div
                     className="bg-slate-400 p-2 mt-4 cursor-pointer grow"
-                    onClick={() => setOpenCreateSlipModal(true)}
+                    onClick={() => setOpenReceivedModal(true)}
                 >
                     + Received
                 </div>
             </div>
             <div className="mt-4">
-                {slipData.length > 0 && (
+                {slipData?.length > 0 && (
                     <div
                         className="grid gap-4 cursor-pointer
-                    sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                                    sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
                     >
-                        {slipData.map((slip) => {
+                        {slipData?.map((slip) => {
                             return (
                                 <div
                                     key={slip.id}
@@ -123,6 +127,12 @@ const Dashboard = () => {
                 <CreateSlipModal
                     showModal={openCreateSlipModal}
                     closeModal={closeCreateSlipModal}
+                />
+            )}
+            {openReceivedModal && (
+                <ReceivedModal
+                    showModal={openReceivedModal}
+                    closeModal={closeReceivedModal}
                 />
             )}
             {openViewSlipModal && (
