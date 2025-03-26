@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import CreateSlipModal from "../slip/modals/createSlip/slipModal.js";
-import { GET_SLIPS } from "../../schema/queries/index.js";
+import { GET_RECEIVED_SLIPS, GET_SLIPS } from "../../schema/queries/index.js";
 import ViewSlipModal from "../slip/modals/viewSlip/index.js";
 import moment from "moment";
 import { EpochDateConverter } from "../../utils/dateConverter.js";
@@ -13,18 +13,17 @@ const Dashboard = () => {
     const [openViewSlipModal, setOpenViewSlipModal] = useState(false);
     const [viewSlipData, setViewSlipData] = useState([]);
     const [slipData, setSlipData] = useState([]);
+    const [newlyCreatedOrder, setNewlyCreatedOrder] = useState(false);
+    const [isPaymentReceived, setIsPaymentReceived] = useState(false);
+    const [receivedSlipsData, setReceivedSlipsData] = useState([]);
 
     //* fetch slips
-    const {
-        loading,
-        error,
-        // data: slipData,
-    } = useQuery(GET_SLIPS, {
+    const { loading, error } = useQuery(GET_SLIPS, {
         variables: {
             organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
             filterRange: {
-                _gte: moment().startOf("date").unix(),
                 _lte: moment().unix(),
+                _gte: moment().startOf("date").unix(),
             },
         },
         onCompleted: (data) => {
@@ -32,20 +31,56 @@ const Dashboard = () => {
             setSlipData(result);
         },
     });
+    const {
+        loading: fetchReceivedSlipsLoading,
+        error: fetchReceivedSlipsError,
+    } = useQuery(GET_RECEIVED_SLIPS, {
+        variables: {
+            organizationId: "195bb0b1-3b81-4435-ad2f-b1a051fce77b",
+            filterRange: {
+                _lte: moment().unix(),
+                _gte: moment().startOf("date").unix(),
+            },
+        },
+        onCompleted: (data) => {
+            const result = data.receivedSlip;
+            setReceivedSlipsData(result);
+        },
+    });
 
     // modal close
-    const closeCreateSlipModal = () => {
+    const closeCreateSlipModal = (isOrderGenerated) => {
         setOpenCreateSlipModal(false);
+
+        if (isOrderGenerated) {
+            console.log(
+                "🚀 ~if closeCreateSlipModal ~ isOrderGenerated:",
+                isOrderGenerated
+            );
+            setNewlyCreatedOrder(isOrderGenerated);
+        } else {
+            console.log(
+                "🚀 ~else closeCreateSlipModal ~ isOrderGenerated:",
+                isOrderGenerated
+            );
+            setNewlyCreatedOrder(false);
+        }
     };
     const closeViewSlipModal = () => {
         setOpenViewSlipModal(false);
     };
-    const closeReceivedModal = () => {
+    const closeReceivedModal = (isPaymentCompleted) => {
         setOpenReceivedModal(false);
+        
+        if (isPaymentCompleted) {
+            setIsPaymentReceived(isPaymentCompleted);
+        } else {
+            setIsPaymentReceived(false);
+        }
     };
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error : {error.message}</p>;
+    if (loading || fetchReceivedSlipsLoading) return <p>Loading...</p>;
+    if (error || fetchReceivedSlipsError) return <p>Error : {error}</p>;
     return (
         <div className="w-full h-full">
             <div className="text-left font-medium">Dashboard</div>

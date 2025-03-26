@@ -2,6 +2,7 @@
 *node_modules
 *.env*
 *build
+*info.md
 
 # debug
 *npm-debug.log*

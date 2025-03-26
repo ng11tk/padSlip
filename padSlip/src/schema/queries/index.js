@@ -27,6 +27,30 @@ export const GET_SLIPS = gql`
     }
 `;
 
+export const GET_RECEIVED_SLIPS = gql`
+    query GET_RECEIVED_SLIPS(
+        $filterRange: bigint_comparison_exp = {}
+        $organizationId: String = ""
+    ) {
+        receivedSlip: slips_receive_slip(
+            where: {
+                org_id: { _eq: $organizationId }
+                created_at: $filterRange
+            }
+            order_by: { created_at: desc_nulls_first }
+        ) {
+            id
+            order_id
+            amount_received
+            enterprise_id
+            payment_mode
+            receipt_date
+            return_item_amount
+            created_at
+        }
+    }
+`;
+
 export const FETCH_ENTERPRISE_LIST = gql`
     query FETCH_ENTERPRISE_LIST($organizationId: String!) {
         enterpriseDetails: enterprises_enterprise(
@@ -70,7 +94,7 @@ export const GET_ENTERPRISE_SLIPS = gql`
 `;
 
 export const GET_SLIPS_LIST = gql`
-    query MyQuery($where: slips_slip_bool_exp = {}) {
+    query GET_SLIPS_LIST($where: slips_slip_bool_exp = {}) {
         slips_slip(where: $where) {
             id
             balanceAmount

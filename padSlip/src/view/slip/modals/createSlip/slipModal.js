@@ -13,6 +13,7 @@ import {
 } from "../../../../schema/mutations/index.js";
 import { FETCH_ENTERPRISE_LIST } from "../../../../schema/queries/index.js";
 import { promiseResolver } from "../../../../utils/promiseResolver.js";
+// import moment from "moment";
 
 const { Option } = Select;
 
@@ -29,8 +30,8 @@ const SlipModal = ({ showModal, closeModal }) => {
     const [itemList, setItemList] = useState([itemObj]);
     const [totalAmount, setTotalAmount] = useState(0);
     const [receivedAmount, setReceivedAmount] = useState(0);
-    const [slipType, setSlipType] = useState();
-    const [deliveryStatus, setDeliveryStatus] = useState();
+    const [slipType, setSlipType] = useState("cash");
+    const [deliveryStatus, setDeliveryStatus] = useState("completed");
     const [deliveryDate, setDeliveryDate] = useState();
 
     //* fetch enterprise list
@@ -144,6 +145,11 @@ const SlipModal = ({ showModal, closeModal }) => {
         setTotalAmount(total);
     }, [itemList]);
 
+    const handleReceivedAmount = (e) => {
+        const value = e.target.value || 0;
+        setReceivedAmount(value);
+    };
+
     //* handle onSubmit
     const handleOnSubmit = async () => {
         let orderId;
@@ -167,6 +173,13 @@ const SlipModal = ({ showModal, closeModal }) => {
             return openNotification(
                 alerts.ERROR,
                 "Please fill all item details",
+                3
+            );
+        }
+        if (slipType === "cash" && receivedAmount !== totalAmount) {
+            return openNotification(
+                alerts.ERROR,
+                "Received amount should be equal to total amount",
                 3
             );
         }
@@ -211,7 +224,7 @@ const SlipModal = ({ showModal, closeModal }) => {
                                 order_id: orderId,
                             },
                         },
-                        onCompleted: closeModal,
+                        onCompleted: () => closeModal(true),
                     })
                 );
             if (insertPaymentDetailsError) {
@@ -239,20 +252,12 @@ const SlipModal = ({ showModal, closeModal }) => {
         }
     };
 
-    const handleReceivedAmount = (e) => {
-        const value = e.target.value || 0;
-        // if (!/[0-9]/.test(event.key)) {
-        //     event.preventDefault();
-        //   }
-        setReceivedAmount(value);
-    };
-
     return (
         <ModalContainer
             bodyStyle={{ background: "#2F3B52" }}
             visible={showModal}
             width={"800px"}
-            closeModal={closeModal}
+            closeModal={() => closeModal(false)}
             closable={false}
             destroyOnClose={true}
             maskClosable={true}
@@ -293,20 +298,23 @@ const SlipModal = ({ showModal, closeModal }) => {
                             options={["Cash", "Order"]}
                             defaultValue="Cash"
                             onChange={(value) => {
-                                console.log(value.toLowerCase()); // string
+                                // console.log(value.toLowerCase()); // string
                                 setSlipType(value.toLowerCase());
                             }}
                         />
                     </div>
-                    <div>
+                    {/* <div>
                         <span>Delivery Date: </span>
                         <DatePicker
+                            defaultValue={moment
+                                .unix(Date.now)
+                                .format("DD-MM-YYYY")}
                             onChange={(date, dateString) => {
                                 console.log(date, dateString);
                                 setDeliveryDate(dateString);
                             }}
                         />
-                    </div>
+                    </div> */}
 
                     <div>
                         <span>Delivery Status: </span>
@@ -387,6 +395,7 @@ const SlipModal = ({ showModal, closeModal }) => {
                         <input
                             className="w-1/3 h-fit text-black border-y-black bg-slate-500 rounded px-2 py-1"
                             type="number"
+                            min={0}
                             value={receivedAmount}
                             onChange={(e) => handleReceivedAmount(e)}
                         />
@@ -410,7 +419,7 @@ const SlipModal = ({ showModal, closeModal }) => {
                 </div>
                 <div className="flex items-center justify-center gap-4">
                     <button onClick={handleOnSubmit}>Print</button>
-                    <button onClick={closeModal}>Cancel</button>
+                    <button onClick={() => closeModal(false)}>Cancel</button>
                 </div>
             </div>
         </ModalContainer>

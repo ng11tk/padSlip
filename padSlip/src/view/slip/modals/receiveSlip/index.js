@@ -122,7 +122,8 @@ const ReceivedModal = ({ showModal, closeModal }) => {
             (acc, order) => acc + order.balanceAmount,
             0
         );
-        const isValidAmount = billedAmount - receivedAmount >= 0 ?? false;
+        const isValidAmount =
+            receivedAmount > 0 && receivedAmount <= billedAmount;
         if (!isValidAmount) {
             return openNotification(
                 alerts.ERROR,
@@ -154,7 +155,7 @@ const ReceivedModal = ({ showModal, closeModal }) => {
                         variables: {
                             objects: paymentDetails,
                         },
-                        onCompleted: closeModal,
+                        onCompleted: () => closeModal(true),
                     })
                 );
             if (insertPaymentDetailsError) {
@@ -172,7 +173,7 @@ const ReceivedModal = ({ showModal, closeModal }) => {
             bodyStyle={{ background: "#2F3B52" }}
             visible={showModal}
             width={"800px"}
-            closeModal={closeModal}
+            closeModal={() => closeModal(false)}
             closable={false}
             destroyOnClose={true}
             maskClosable={true}
@@ -239,7 +240,7 @@ const ReceivedModal = ({ showModal, closeModal }) => {
             </div>
             <div className="flex items-center justify-center gap-4">
                 <button onClick={handleOnSubmit}>Print</button>
-                <button onClick={closeModal}>Cancel</button>
+                <button onClick={() => closeModal(false)}>Cancel</button>
             </div>
         </ModalContainer>
     );
