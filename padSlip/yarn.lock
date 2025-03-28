@@ -20,46 +20,62 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@ant-design/colors@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.npmjs.org/@ant-design/colors/-/colors-7.0.0.tgz"
-  integrity sha512-iVm/9PfGCbC0dSMBrz7oiEXZaaGH7ceU40OJEfKmyuzR9R5CRimJYPlRiFtMQGQcbNMea/ePcoIebi4ASGYXtg==
+"@ant-design/colors@^7.0.0", "@ant-design/colors@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-7.2.0.tgz#80d7325d20463f09c7839d28da630043dd5c263a"
+  integrity sha512-bjTObSnZ9C/O8MB/B4OUtd/q9COomuJAR2SYfhxLyHvCKn4EKwCN3e+fWGMo7H5InAyV0wL17jdE9ALrdOW/6A==
   dependencies:
-    "@ctrl/tinycolor" "^3.4.0"
+    "@ant-design/fast-color" "^2.0.6"
 
-"@ant-design/cssinjs@^1.16.0":
-  version "1.17.0"
-  resolved "https://registry.npmjs.org/@ant-design/cssinjs/-/cssinjs-1.17.0.tgz"
-  integrity sha512-MgGCZ6sfD3yQB0XW0hN4jgixMxApTlDYyct+pc7fRZNO4CaqWWm/9iXkkljNR27lyWLZmm+XiDfcIOo1bnrnMA==
+"@ant-design/cssinjs-utils@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@ant-design/cssinjs-utils/-/cssinjs-utils-1.1.3.tgz#5dd79126057920a6992d57b38dd84e2c0b707977"
+  integrity sha512-nOoQMLW1l+xR1Co8NFVYiP8pZp3VjIIzqV6D6ShYF2ljtdwWJn5WSsH+7kvCktXL/yhEtWURKOfH5Xz/gzlwsg==
+  dependencies:
+    "@ant-design/cssinjs" "^1.21.0"
+    "@babel/runtime" "^7.23.2"
+    rc-util "^5.38.0"
+
+"@ant-design/cssinjs@^1.21.0", "@ant-design/cssinjs@^1.23.0":
+  version "1.23.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/cssinjs/-/cssinjs-1.23.0.tgz#492efba9b15d64f42a4cb5d568cab0607d0c2b16"
+  integrity sha512-7GAg9bD/iC9ikWatU9ym+P9ugJhi/WbsTWzcKN6T4gU0aehsprtke1UAaaSxxkjjmkJb3llet/rbUSLPgwlY4w==
   dependencies:
     "@babel/runtime" "^7.11.1"
     "@emotion/hash" "^0.8.0"
     "@emotion/unitless" "^0.7.5"
     classnames "^2.3.1"
-    csstype "^3.0.10"
+    csstype "^3.1.3"
     rc-util "^5.35.0"
-    stylis "^4.0.13"
+    stylis "^4.3.4"
 
-"@ant-design/icons-svg@^4.3.0":
-  version "4.3.1"
-  resolved "https://registry.npmjs.org/@ant-design/icons-svg/-/icons-svg-4.3.1.tgz"
-  integrity sha512-4QBZg8ccyC6LPIRii7A0bZUk3+lEDCLnhB+FVsflGdcWPPmV+j3fire4AwwoqHV/BibgvBmR9ZIo4s867smv+g==
+"@ant-design/fast-color@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@ant-design/fast-color/-/fast-color-2.0.6.tgz#ab4d4455c1542c9017d367c2fa8ca3e4215d0ba2"
+  integrity sha512-y2217gk4NqL35giHl72o6Zzqji9O7vHh9YmhUVkPtAOpoTCH4uWxo/pr4VE8t0+ChEPs0qo4eJRC5Q1eXWo3vA==
+  dependencies:
+    "@babel/runtime" "^7.24.7"
 
-"@ant-design/icons@^5.2.2":
-  version "5.2.6"
-  resolved "https://registry.npmjs.org/@ant-design/icons/-/icons-5.2.6.tgz"
-  integrity sha512-4wn0WShF43TrggskBJPRqCD0fcHbzTYjnaoskdiJrVHg86yxoZ8ZUqsXvyn4WUqehRiFKnaclOhqk9w4Ui2KVw==
+"@ant-design/icons-svg@^4.4.0":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons-svg/-/icons-svg-4.4.2.tgz#ed2be7fb4d82ac7e1d45a54a5b06d6cecf8be6f6"
+  integrity sha512-vHbT+zJEVzllwP+CM+ul7reTEfBR0vgxFe7+lREAsAA7YGsYpboiq2sQNeQeRvh09GfQgs/GyFEvZpJ9cLXpXA==
+
+"@ant-design/icons@^5.6.1":
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons/-/icons-5.6.1.tgz#7290fcdc3d96ff3fca793ed399053cd29ad5dbd3"
+  integrity sha512-0/xS39c91WjPAZOWsvi1//zjx6kAp4kxWwctR6kuU6p133w8RU0D2dSCvZC19uQyharg/sAvYxGYWl01BbZZfg==
   dependencies:
     "@ant-design/colors" "^7.0.0"
-    "@ant-design/icons-svg" "^4.3.0"
-    "@babel/runtime" "^7.11.2"
+    "@ant-design/icons-svg" "^4.4.0"
+    "@babel/runtime" "^7.24.8"
     classnames "^2.2.6"
     rc-util "^5.31.1"
 
-"@ant-design/react-slick@~1.0.0":
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/@ant-design/react-slick/-/react-slick-1.0.2.tgz"
-  integrity sha512-Wj8onxL/T8KQLFFiCA4t8eIRGpRR+UPgOdac2sYzonv+i0n3kXHmvHLLiOYL655DQx2Umii9Y9nNgL7ssu5haQ==
+"@ant-design/react-slick@~1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/react-slick/-/react-slick-1.1.2.tgz#f84ce3e4d0dc941f02b16f1d1d6d7a371ffbb4f1"
+  integrity sha512-EzlvzE6xQUBrZuuhSAFTdsr4P2bBBHGZwKFemEfq8gIGyIQCxalYfZW/T2ORbtQx5rU69o+WycP3exY/7T1hGA==
   dependencies:
     "@babel/runtime" "^7.10.4"
     classnames "^2.2.5"
@@ -1104,7 +1120,14 @@
   resolved "https://registry.npmjs.org/@babel/regjsgen/-/regjsgen-0.8.0.tgz"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.10.1", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.16.7", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.0", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.10.1", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.7", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.0", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.22.5", "@babel/runtime@^7.23.2", "@babel/runtime@^7.23.6", "@babel/runtime@^7.23.9", "@babel/runtime@^7.24.4", "@babel/runtime@^7.24.7", "@babel/runtime@^7.24.8", "@babel/runtime@^7.25.7", "@babel/runtime@^7.26.0":
+  version "7.27.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.27.0.tgz#fbee7cf97c709518ecc1f590984481d5460d4762"
+  integrity sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
+"@babel/runtime@^7.16.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.22.15"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.22.15.tgz"
   integrity sha512-T0O+aa+4w0u06iNmapipJXMV4HoUir03hpx3/YqXXhu9xim3w+dVphjFWl1OH8NbZHw5Lbm9k45drDkgq2VNNA==
@@ -1261,19 +1284,14 @@
   resolved "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
-"@ctrl/tinycolor@^3.4.0", "@ctrl/tinycolor@^3.6.0":
-  version "3.6.1"
-  resolved "https://registry.npmjs.org/@ctrl/tinycolor/-/tinycolor-3.6.1.tgz"
-  integrity sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==
-
 "@emotion/hash@^0.8.0":
   version "0.8.0"
-  resolved "https://registry.npmjs.org/@emotion/hash/-/hash-0.8.0.tgz"
+  resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
 "@emotion/unitless@^0.7.5":
   version "0.7.5"
-  resolved "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.7.5.tgz"
+  resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
 "@eslint-community/eslint-utils@^4.2.0":
@@ -1677,19 +1695,26 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rc-component/color-picker@~1.4.1":
-  version "1.4.1"
-  resolved "https://registry.npmjs.org/@rc-component/color-picker/-/color-picker-1.4.1.tgz"
-  integrity sha512-vh5EWqnsayZa/JwUznqDaPJz39jznx/YDbyBuVJntv735tKXKwEUZZb2jYEldOg+NKWZwtALjGMrNeGBmqFoEw==
+"@rc-component/async-validator@^5.0.3":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@rc-component/async-validator/-/async-validator-5.0.4.tgz#5291ad92f00a14b6766fc81735c234277f83e948"
+  integrity sha512-qgGdcVIF604M9EqjNF0hbUTz42bz/RDtxWdWuU5EQe3hi7M8ob54B6B35rOsvX5eSvIHIzT9iH1R3n+hk3CGfg==
   dependencies:
-    "@babel/runtime" "^7.10.1"
-    "@ctrl/tinycolor" "^3.6.0"
+    "@babel/runtime" "^7.24.4"
+
+"@rc-component/color-picker@~2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@rc-component/color-picker/-/color-picker-2.0.1.tgz#6b9b96152466a9d4475cbe72b40b594bfda164be"
+  integrity sha512-WcZYwAThV/b2GISQ8F+7650r5ZZJ043E57aVBFkQ+kSY4C6wdofXgB0hBx+GPGpIU0Z81eETNoDUJMr7oy/P8Q==
+  dependencies:
+    "@ant-design/fast-color" "^2.0.6"
+    "@babel/runtime" "^7.23.6"
     classnames "^2.2.6"
-    rc-util "^5.30.0"
+    rc-util "^5.38.1"
 
 "@rc-component/context@^1.4.0":
   version "1.4.0"
-  resolved "https://registry.npmjs.org/@rc-component/context/-/context-1.4.0.tgz"
+  resolved "https://registry.yarnpkg.com/@rc-component/context/-/context-1.4.0.tgz#dc6fb021d6773546af8f016ae4ce9aea088395e8"
   integrity sha512-kFcNxg9oLRMoL3qki0OMxK+7g5mypjgaaJp/pkOis/6rVxma9nJBF/8kCIuTYHUQNr0ii7MxqE33wirPZLJQ2w==
   dependencies:
     "@babel/runtime" "^7.10.1"
@@ -1697,14 +1722,14 @@
 
 "@rc-component/mini-decimal@^1.0.1":
   version "1.1.0"
-  resolved "https://registry.npmjs.org/@rc-component/mini-decimal/-/mini-decimal-1.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/@rc-component/mini-decimal/-/mini-decimal-1.1.0.tgz#7b7a362b14a0a54cb5bc6fd2b82731f29f11d9b0"
   integrity sha512-jS4E7T9Li2GuYwI6PyiVXmxTiM6b07rlD9Ge8uGZSCz3WlzcG5ZK7g5bbuKNeZ9pgUuPK/5guV781ujdVpm4HQ==
   dependencies:
     "@babel/runtime" "^7.18.0"
 
 "@rc-component/mutate-observer@^1.1.0":
   version "1.1.0"
-  resolved "https://registry.npmjs.org/@rc-component/mutate-observer/-/mutate-observer-1.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/@rc-component/mutate-observer/-/mutate-observer-1.1.0.tgz#ee53cc88b78aade3cd0653609215a44779386fd8"
   integrity sha512-QjrOsDXQusNwGZPf4/qRQasg7UFEj06XiCJ8iuiq/Io7CrHrgVi6Uuetw60WAMG1799v+aM8kyc+1L/GBbHSlw==
   dependencies:
     "@babel/runtime" "^7.18.0"
@@ -1713,36 +1738,44 @@
 
 "@rc-component/portal@^1.0.0-8", "@rc-component/portal@^1.0.0-9", "@rc-component/portal@^1.0.2", "@rc-component/portal@^1.1.0", "@rc-component/portal@^1.1.1":
   version "1.1.2"
-  resolved "https://registry.npmjs.org/@rc-component/portal/-/portal-1.1.2.tgz"
+  resolved "https://registry.yarnpkg.com/@rc-component/portal/-/portal-1.1.2.tgz#55db1e51d784e034442e9700536faaa6ab63fc71"
   integrity sha512-6f813C0IsasTZms08kfA8kPAGxbbkYToa8ALaiDIGGECU4i9hj8Plgbx0sNJDrey3EtHO30hmdaxtT0138xZcg==
   dependencies:
     "@babel/runtime" "^7.18.0"
     classnames "^2.3.2"
     rc-util "^5.24.4"
 
-"@rc-component/tour@~1.10.0":
-  version "1.10.0"
-  resolved "https://registry.npmjs.org/@rc-component/tour/-/tour-1.10.0.tgz"
-  integrity sha512-voV0BKaTJbewB9LLgAHQ7tAGG7rgDkKQkZo82xw2gIk542hY+o7zwoqdN16oHhIKk7eG/xi+mdXrONT62Dt57A==
+"@rc-component/qrcode@~1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@rc-component/qrcode/-/qrcode-1.0.0.tgz#48a8de5eb11d0e65926f1377c4b1ef4c888997f5"
+  integrity sha512-L+rZ4HXP2sJ1gHMGHjsg9jlYBX/SLN2D6OxP9Zn3qgtpMWtO2vUfxVFwiogHpAIqs54FnALxraUy/BCO1yRIgg==
+  dependencies:
+    "@babel/runtime" "^7.24.7"
+    classnames "^2.3.2"
+    rc-util "^5.38.0"
+
+"@rc-component/tour@~1.15.1":
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/@rc-component/tour/-/tour-1.15.1.tgz#9b79808254185fc19e964172d99e25e8c6800ded"
+  integrity sha512-Tr2t7J1DKZUpfJuDZWHxyxWpfmj8EZrqSgyMZ+BCdvKZ6r1UDsfU46M/iWAAFBy961Ssfom2kv5f3UcjIL2CmQ==
   dependencies:
     "@babel/runtime" "^7.18.0"
     "@rc-component/portal" "^1.0.0-9"
-    "@rc-component/trigger" "^1.3.6"
+    "@rc-component/trigger" "^2.0.0"
     classnames "^2.3.2"
     rc-util "^5.24.4"
 
-"@rc-component/trigger@^1.0.4", "@rc-component/trigger@^1.15.6", "@rc-component/trigger@^1.3.6", "@rc-component/trigger@^1.5.0", "@rc-component/trigger@^1.6.2", "@rc-component/trigger@^1.7.0":
-  version "1.15.6"
-  resolved "https://registry.npmjs.org/@rc-component/trigger/-/trigger-1.15.6.tgz"
-  integrity sha512-Tl19KaGsShf4yzqxumsXVT4c7j0l20Dxe5hgP5S0HmxyhCg3oKen28ntGavRCIPW7cl7wgsGotntqcIokgDHzg==
+"@rc-component/trigger@^2.0.0", "@rc-component/trigger@^2.1.1", "@rc-component/trigger@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@rc-component/trigger/-/trigger-2.2.6.tgz#bfe6602313b3fadd659687746511f813299d5ea4"
+  integrity sha512-/9zuTnWwhQ3S3WT1T8BubuFTT46kvnXgaERR9f4BTKyn61/wpf/BvbImzYBubzJibU707FxwbKszLlHjcLiv1Q==
   dependencies:
-    "@babel/runtime" "^7.18.3"
+    "@babel/runtime" "^7.23.2"
     "@rc-component/portal" "^1.1.0"
     classnames "^2.3.2"
-    rc-align "^4.0.0"
     rc-motion "^2.0.0"
     rc-resize-observer "^1.3.1"
-    rc-util "^5.33.0"
+    rc-util "^5.44.0"
 
 "@remix-run/router@1.7.1":
   version "1.7.1"
@@ -2143,15 +2176,6 @@
     expect "^29.0.0"
     pretty-format "^29.0.0"
 
-"@types/jsdom@^21.1.2":
-  version "21.1.2"
-  resolved "https://registry.npmjs.org/@types/jsdom/-/jsdom-21.1.2.tgz"
-  integrity sha512-bGj+7TaCkOwkJfx7HtS9p22Ij0A2aKMuz8a1+owpkxa1wU/HUBy/WAXhdv90uDdVI9rSjGvUrXmLSeA9VP3JeA==
-  dependencies:
-    "@types/node" "*"
-    "@types/tough-cookie" "*"
-    parse5 "^7.0.0"
-
 "@types/json-schema@*", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.11.tgz"
@@ -2168,9 +2192,11 @@
   integrity sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==
 
 "@types/node@*":
-  version "20.0.0"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.0.0.tgz"
-  integrity sha512-cD2uPTDnQQCVpmRefonO98/PPijuOnnEy5oytWJFPY1N9aJCz2wJ5kSGWO+zJoed2cY2JxQh6yBuUq4vIn61hw==
+  version "22.13.14"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.14.tgz#70d84ec91013dcd2ba2de35532a5a14c2b4cc912"
+  integrity sha512-Zs/Ollc1SJ8nKUAgc7ivOEdIBM8JAKgrqqUYi2J997JuKO7/tpQC+WCetQ1sypiKCQWHdvdg9wBNpUPEWZae7w==
+  dependencies:
+    undici-types "~6.20.0"
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2281,11 +2307,6 @@
   integrity sha512-SBwbxYoyPIvxHbeHxTZX2Pe/74F/tX2/D3mMvzabdeJ25bBojfW0TyB8BHrbq/9zaaKICJZjLP+8r6AeZMFCuQ==
   dependencies:
     "@types/jest" "*"
-
-"@types/tough-cookie@*":
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/@types/tough-cookie/-/tough-cookie-4.0.3.tgz"
-  integrity sha512-THo502dA5PzG/sfQH+42Lw3fvmYkceefOspdCwpHRul8ik2Jv1K8I5OZz1AT3/rs46kwgMCe9bSBmDLYkkOMGg==
 
 "@types/trusted-types@^2.0.2":
   version "2.0.3"
@@ -2714,60 +2735,60 @@ ansi-styles@^5.0.0:
   resolved "https://registry.npmjs.org/ansi-styles/-/ansi-styles-5.2.0.tgz"
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
-antd@^5.6.4:
-  version "5.9.1"
-  resolved "https://registry.npmjs.org/antd/-/antd-5.9.1.tgz"
-  integrity sha512-kMjoDCUSNLyktgz2nX0wNys6Ni3DqVLWXiEDao/TESBsqQIrqkAQAbg1q1kX7Pw8yKXcnrx6tR5Fbv+TMKB72w==
+antd@^5.24.5:
+  version "5.24.5"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-5.24.5.tgz#b0976a113163888d1477f9e666c3c23352b098e9"
+  integrity sha512-1lAv/G+9ewQanyoAo3JumQmIlVxwo5QwWGb6QCHYc40Cq0NxC/EzITcjsgq1PSaTUpLkKq8A2l7Fjtu47vqQBg==
   dependencies:
-    "@ant-design/colors" "^7.0.0"
-    "@ant-design/cssinjs" "^1.16.0"
-    "@ant-design/icons" "^5.2.2"
-    "@ant-design/react-slick" "~1.0.0"
-    "@babel/runtime" "^7.18.3"
-    "@ctrl/tinycolor" "^3.6.0"
-    "@rc-component/color-picker" "~1.4.1"
+    "@ant-design/colors" "^7.2.0"
+    "@ant-design/cssinjs" "^1.23.0"
+    "@ant-design/cssinjs-utils" "^1.1.3"
+    "@ant-design/fast-color" "^2.0.6"
+    "@ant-design/icons" "^5.6.1"
+    "@ant-design/react-slick" "~1.1.2"
+    "@babel/runtime" "^7.26.0"
+    "@rc-component/color-picker" "~2.0.1"
     "@rc-component/mutate-observer" "^1.1.0"
-    "@rc-component/tour" "~1.10.0"
-    "@rc-component/trigger" "^1.15.6"
-    "@types/jsdom" "^21.1.2"
-    classnames "^2.2.6"
-    copy-to-clipboard "^3.2.0"
-    dayjs "^1.11.1"
-    qrcode.react "^3.1.0"
-    rc-cascader "~3.16.0"
-    rc-checkbox "~3.1.0"
-    rc-collapse "~3.7.1"
-    rc-dialog "~9.2.0"
-    rc-drawer "~6.4.1"
-    rc-dropdown "~4.1.0"
-    rc-field-form "~1.38.0"
-    rc-image "~7.2.0"
-    rc-input "~1.1.1"
-    rc-input-number "~8.0.4"
-    rc-mentions "~2.7.0"
-    rc-menu "~9.12.0"
-    rc-motion "^2.9.0"
-    rc-notification "~5.1.1"
-    rc-pagination "~3.6.1"
-    rc-picker "~3.14.1"
-    rc-progress "~3.5.1"
-    rc-rate "~2.12.0"
-    rc-resize-observer "^1.3.1"
-    rc-segmented "~2.2.2"
-    rc-select "~14.8.1"
-    rc-slider "~10.2.1"
+    "@rc-component/qrcode" "~1.0.0"
+    "@rc-component/tour" "~1.15.1"
+    "@rc-component/trigger" "^2.2.6"
+    classnames "^2.5.1"
+    copy-to-clipboard "^3.3.3"
+    dayjs "^1.11.11"
+    rc-cascader "~3.33.1"
+    rc-checkbox "~3.5.0"
+    rc-collapse "~3.9.0"
+    rc-dialog "~9.6.0"
+    rc-drawer "~7.2.0"
+    rc-dropdown "~4.2.1"
+    rc-field-form "~2.7.0"
+    rc-image "~7.11.1"
+    rc-input "~1.7.3"
+    rc-input-number "~9.4.0"
+    rc-mentions "~2.19.1"
+    rc-menu "~9.16.1"
+    rc-motion "^2.9.5"
+    rc-notification "~5.6.3"
+    rc-pagination "~5.1.0"
+    rc-picker "~4.11.3"
+    rc-progress "~4.0.0"
+    rc-rate "~2.13.1"
+    rc-resize-observer "^1.4.3"
+    rc-segmented "~2.7.0"
+    rc-select "~14.16.6"
+    rc-slider "~11.1.8"
     rc-steps "~6.0.1"
     rc-switch "~4.1.0"
-    rc-table "~7.34.0"
-    rc-tabs "~12.12.1"
-    rc-textarea "~1.3.4"
-    rc-tooltip "~6.0.1"
-    rc-tree "~5.7.10"
-    rc-tree-select "~5.12.1"
-    rc-upload "~4.3.4"
-    rc-util "^5.37.0"
-    scroll-into-view-if-needed "^3.0.3"
-    throttle-debounce "^5.0.0"
+    rc-table "~7.50.4"
+    rc-tabs "~15.5.1"
+    rc-textarea "~1.9.0"
+    rc-tooltip "~6.4.0"
+    rc-tree "~5.13.1"
+    rc-tree-select "~5.27.0"
+    rc-upload "~4.8.1"
+    rc-util "^5.44.4"
+    scroll-into-view-if-needed "^3.1.0"
+    throttle-debounce "^5.0.2"
 
 any-promise@^1.0.0:
   version "1.3.0"
@@ -2835,11 +2856,6 @@ array-includes@^3.1.5, array-includes@^3.1.6:
     get-intrinsic "^1.1.3"
     is-string "^1.0.7"
 
-array-tree-filter@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/array-tree-filter/-/array-tree-filter-2.1.0.tgz"
-  integrity sha512-4ROwICNlNw/Hqa9v+rk5h22KjmzB1JGTMVKP2AKJBOCgb0yL0ASf0+YvCcLNNwquOHNX48jkeZIJ3a+oOQqKcw==
-
 array-union@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/array-union/-/array-union-2.1.0.tgz"
@@ -2896,11 +2912,6 @@ ast-types-flow@^0.0.7:
   version "0.0.7"
   resolved "https://registry.npmjs.org/ast-types-flow/-/ast-types-flow-0.0.7.tgz"
   integrity sha512-eBvWn1lvIApYMhzQMsu9ciLfkBY499mFZlNqG+/9WR7PVlroQw0vG30cOQQbaKz3sCEc44TAOu2ykzqXSNnwag==
-
-async-validator@^4.1.0:
-  version "4.2.5"
-  resolved "https://registry.npmjs.org/async-validator/-/async-validator-4.2.5.tgz"
-  integrity sha512-7HhHjtERjqlNbZtqNqy2rckN/SpOOlmDliet+lP7k+eKZEjPk3DgyeU9lIXLdeLz0uBbbVp+9Qdow9wJWgwwfg==
 
 async@^3.2.3:
   version "3.2.4"
@@ -3349,10 +3360,10 @@ cjs-module-lexer@^1.0.0:
   resolved "https://registry.npmjs.org/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
 
-classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1, classnames@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.npmjs.org/classnames/-/classnames-2.3.2.tgz"
-  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
+classnames@2.x, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1, classnames@^2.3.2, classnames@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.5.1.tgz#ba774c614be0f016da105c858e7159eae8e7687b"
+  integrity sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==
 
 clean-css@^5.2.2:
   version "5.3.2"
@@ -3486,9 +3497,9 @@ compression@^1.7.4:
     vary "~1.1.2"
 
 compute-scroll-into-view@^3.0.2:
-  version "3.0.3"
-  resolved "https://registry.npmjs.org/compute-scroll-into-view/-/compute-scroll-into-view-3.0.3.tgz"
-  integrity sha512-nadqwNxghAGTamwIqQSG433W6OADZx2vCo3UXHNrzTRHK/htu+7+L0zhjEoaeaQVNAi3YgqWDv8+tzf0hRfR+A==
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/compute-scroll-into-view/-/compute-scroll-into-view-3.1.1.tgz#02c3386ec531fb6a9881967388e53e8564f3e9aa"
+  integrity sha512-VRhuHOLoKYOy4UbilLbUzbYg93XLjv2PncJC50EuTWPA3gaja1UjBsUP/D/9/juV3vQFr6XBEzn9KCAHdUvOHw==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -3532,9 +3543,9 @@ cookie@0.5.0:
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.5.0.tgz"
   integrity sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==
 
-copy-to-clipboard@^3.2.0:
+copy-to-clipboard@^3.3.3:
   version "3.3.3"
-  resolved "https://registry.npmjs.org/copy-to-clipboard/-/copy-to-clipboard-3.3.3.tgz"
+  resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.3.tgz#55ac43a1db8ae639a4bd99511c148cdd1b83a1b0"
   integrity sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==
   dependencies:
     toggle-selection "^1.0.6"
@@ -3787,10 +3798,15 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
-csstype@^3.0.10, csstype@^3.0.2:
+csstype@^3.0.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz"
   integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
+
+csstype@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.3.tgz#d80ff294d114fb0e6ac500fbf85b60137d7eff81"
+  integrity sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==
 
 damerau-levenshtein@^1.0.8:
   version "1.0.8"
@@ -3806,10 +3822,10 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-dayjs@^1.11.1:
-  version "1.11.9"
-  resolved "https://registry.npmjs.org/dayjs/-/dayjs-1.11.9.tgz"
-  integrity sha512-QvzAURSbQ0pKdIye2txOzNaHmxtUBXerpY0FJsFXUMKbIZeFm5ht1LS/jFsrncjnmtv8HsG0W2g6c0zUjZWmpA==
+dayjs@^1.11.11:
+  version "1.11.13"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.13.tgz#92430b0139055c3ebb60150aa13e860a4b5a366c"
+  integrity sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==
 
 debug@2.6.9, debug@^2.6.0:
   version "2.6.9"
@@ -3992,11 +4008,6 @@ dom-accessibility-api@^0.5.6, dom-accessibility-api@^0.5.9:
   resolved "https://registry.npmjs.org/dom-accessibility-api/-/dom-accessibility-api-0.5.16.tgz"
   integrity sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg==
 
-dom-align@^1.7.0:
-  version "1.12.4"
-  resolved "https://registry.npmjs.org/dom-align/-/dom-align-1.12.4.tgz"
-  integrity sha512-R8LUSEay/68zE5c8/3BDxiTEvgb4xZTF0RKmAHfiEVN3klfIpXfi2/QCoiWPccVQ0J/ZGdz9OjzL4uJEP/MRAw==
-
 dom-converter@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/dom-converter/-/dom-converter-0.2.0.tgz"
@@ -4149,11 +4160,6 @@ entities@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmjs.org/entities/-/entities-2.2.0.tgz"
   integrity sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==
-
-entities@^4.4.0:
-  version "4.5.0"
-  resolved "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
-  integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
 
 error-ex@^1.3.1:
   version "1.3.2"
@@ -6318,7 +6324,7 @@ json-stable-stringify-without-jsonify@^1.0.1:
 
 json2mq@^0.2.0:
   version "0.2.0"
-  resolved "https://registry.npmjs.org/json2mq/-/json2mq-0.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/json2mq/-/json2mq-0.2.0.tgz#b637bd3ba9eabe122c83e9720483aeb10d2c904a"
   integrity sha512-SzoRg7ux5DWTII9J2qkrZrqV1gt+rTaoufMxEzXbS26Uid0NwaJd123HcoB80TgubEppxxIGdNxCx50fEoEWQA==
   dependencies:
     string-convert "^0.2.0"
@@ -7022,13 +7028,6 @@ parse5@6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz"
   integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
-
-parse5@^7.0.0:
-  version "7.1.2"
-  resolved "https://registry.npmjs.org/parse5/-/parse5-7.1.2.tgz"
-  integrity sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==
-  dependencies:
-    entities "^4.4.0"
 
 parseurl@~1.3.2, parseurl@~1.3.3:
   version "1.3.3"
@@ -7782,11 +7781,6 @@ q@^1.1.2:
   resolved "https://registry.npmjs.org/q/-/q-1.5.1.tgz"
   integrity sha512-kV/CThkXo6xyFEZUugw/+pIOywXcDbFYgSct5cT3gqlbkBE1SJdwy6UQoZvodiWF/ckQLZyDE/Bu1M6gVu5lVw==
 
-qrcode.react@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/qrcode.react/-/qrcode.react-3.1.0.tgz"
-  integrity sha512-oyF+Urr3oAMUG/OiOuONL3HXM+53wvuH3mtIWQrYmsXoAq0DkvZp2RYUWFSMFtbdOpuS++9v+WAkzNVkMlNW6Q==
-
 qs@6.11.0:
   version "6.11.0"
   resolved "https://registry.npmjs.org/qs/-/qs-6.11.0.tgz"
@@ -7833,52 +7827,40 @@ raw-body@2.5.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-rc-align@^4.0.0:
-  version "4.0.15"
-  resolved "https://registry.npmjs.org/rc-align/-/rc-align-4.0.15.tgz"
-  integrity sha512-wqJtVH60pka/nOX7/IspElA8gjPNQKIx/ZqJ6heATCkXpe1Zg4cPVrMD2vC96wjsFFL8WsmhPbx9tdMo1qqlIA==
+rc-cascader@~3.33.1:
+  version "3.33.1"
+  resolved "https://registry.yarnpkg.com/rc-cascader/-/rc-cascader-3.33.1.tgz#19e01462ef5ef51b723c1f562c7b9cde4691e7ee"
+  integrity sha512-Kyl4EJ7ZfCBuidmZVieegcbFw0RcU5bHHSbtEdmuLYd0fYHCAiYKZ6zon7fWAVyC6rWWOOib0XKdTSf7ElC9rg==
   dependencies:
-    "@babel/runtime" "^7.10.1"
-    classnames "2.x"
-    dom-align "^1.7.0"
-    rc-util "^5.26.0"
-    resize-observer-polyfill "^1.5.1"
-
-rc-cascader@~3.16.0:
-  version "3.16.0"
-  resolved "https://registry.npmjs.org/rc-cascader/-/rc-cascader-3.16.0.tgz"
-  integrity sha512-c62glOhm66T0/Y8vOfIgZwHHTbqCyC7FvBTcNDuwbXZc8Dfbz6fB1yIuCB55z5rPA7nsUfMyNNuS8shReZWM+A==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    array-tree-filter "^2.1.0"
+    "@babel/runtime" "^7.25.7"
     classnames "^2.3.1"
-    rc-select "~14.8.0"
-    rc-tree "~5.7.0"
-    rc-util "^5.35.0"
+    rc-select "~14.16.2"
+    rc-tree "~5.13.0"
+    rc-util "^5.43.0"
 
-rc-checkbox@~3.1.0:
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/rc-checkbox/-/rc-checkbox-3.1.0.tgz"
-  integrity sha512-PAwpJFnBa3Ei+5pyqMMXdcKYKNBMS+TvSDiLdDnARnMJHC8ESxwPfm4Ao1gJiKtWLdmGfigascnCpwrHFgoOBQ==
+rc-checkbox@~3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/rc-checkbox/-/rc-checkbox-3.5.0.tgz#3ae2441e3a321774d390f76539e706864fcf5ff0"
+  integrity sha512-aOAQc3E98HteIIsSqm6Xk2FPKIER6+5vyEFMZfo73TqM+VVAIqOkHoPjgKLqSNtVLWScoaM7vY2ZrGEheI79yg==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.3.2"
     rc-util "^5.25.2"
 
-rc-collapse@~3.7.1:
-  version "3.7.1"
-  resolved "https://registry.npmjs.org/rc-collapse/-/rc-collapse-3.7.1.tgz"
-  integrity sha512-N/7ejyiTf3XElNJBBpxqnZBUuMsQWEOPjB2QkfNvZ/Ca54eAvJXuOD1EGbCWCk2m7v/MSxku7mRpdeaLOCd4Gg==
+rc-collapse@~3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/rc-collapse/-/rc-collapse-3.9.0.tgz#972404ce7724e1c9d1d2476543e1175404a36806"
+  integrity sha512-swDdz4QZ4dFTo4RAUMLL50qP0EY62N2kvmk2We5xYdRwcRn8WcYtuetCJpwpaCbUfUt5+huLpVxhvmnK+PHrkA==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
     rc-motion "^2.3.4"
     rc-util "^5.27.0"
 
-rc-dialog@~9.2.0:
-  version "9.2.0"
-  resolved "https://registry.npmjs.org/rc-dialog/-/rc-dialog-9.2.0.tgz"
-  integrity sha512-dL2tklMou/QfK77+0CTH3FTnKCvIiYv9Df7PfFfg8YVXhYAGmuIkV4ooQYHAIR4juL3Ywcm5oQflF2vDDuGlUg==
+rc-dialog@~9.6.0:
+  version "9.6.0"
+  resolved "https://registry.yarnpkg.com/rc-dialog/-/rc-dialog-9.6.0.tgz#dc7a255c6ad1cb56021c3a61c7de86ee88c7c371"
+  integrity sha512-ApoVi9Z8PaCQg6FsUzS8yvBEQy0ZL2PkuvAgrmohPkN3okps5WZ5WQWPc1RNuiOKaAYv8B97ACdsFU5LizzCqg==
   dependencies:
     "@babel/runtime" "^7.10.1"
     "@rc-component/portal" "^1.0.0-8"
@@ -7886,204 +7868,206 @@ rc-dialog@~9.2.0:
     rc-motion "^2.3.0"
     rc-util "^5.21.0"
 
-rc-drawer@~6.4.1:
-  version "6.4.1"
-  resolved "https://registry.npmjs.org/rc-drawer/-/rc-drawer-6.4.1.tgz"
-  integrity sha512-QIbNMjiZy322o9uEpJHsSZ5rS/zuxqam3lYVPDzjztoqsoDzTNNxWN77QVpOfQ0UC9/87+qu25zocJ+O9bK2Tg==
+rc-drawer@~7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/rc-drawer/-/rc-drawer-7.2.0.tgz#8d7de2f1fd52f3ac5a25f54afbb8ac14c62e5663"
+  integrity sha512-9lOQ7kBekEJRdEpScHvtmEtXnAsy+NGDXiRWc2ZVC7QXAazNVbeT4EraQKYwCME8BJLa8Bxqxvs5swwyOepRwg==
   dependencies:
-    "@babel/runtime" "^7.10.1"
+    "@babel/runtime" "^7.23.9"
     "@rc-component/portal" "^1.1.1"
     classnames "^2.2.6"
     rc-motion "^2.6.1"
-    rc-util "^5.36.0"
+    rc-util "^5.38.1"
 
-rc-dropdown@~4.1.0:
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/rc-dropdown/-/rc-dropdown-4.1.0.tgz"
-  integrity sha512-VZjMunpBdlVzYpEdJSaV7WM7O0jf8uyDjirxXLZRNZ+tAC+NzD3PXPEtliFwGzVwBBdCmGuSqiS9DWcOLxQ9tw==
+rc-dropdown@~4.2.0, rc-dropdown@~4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/rc-dropdown/-/rc-dropdown-4.2.1.tgz#44729eb2a4272e0353d31ac060da21e606accb1c"
+  integrity sha512-YDAlXsPv3I1n42dv1JpdM7wJ+gSUBfeyPK59ZpBD9jQhK9jVuxpjj3NmWQHOBceA1zEPVX84T2wbdb2SD0UjmA==
   dependencies:
     "@babel/runtime" "^7.18.3"
-    "@rc-component/trigger" "^1.7.0"
+    "@rc-component/trigger" "^2.0.0"
     classnames "^2.2.6"
-    rc-util "^5.17.0"
+    rc-util "^5.44.1"
 
-rc-field-form@~1.38.0:
-  version "1.38.0"
-  resolved "https://registry.npmjs.org/rc-field-form/-/rc-field-form-1.38.0.tgz"
-  integrity sha512-erYxHL6s382MShbAlP5kquQETqulZII0uJmhjtIwkIGqPowJDrQeoey43notZFhVjeJDtznoJlBzVjiVN99w8g==
+rc-field-form@~2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/rc-field-form/-/rc-field-form-2.7.0.tgz#22413e793f35bfc1f35b0ec462774d7277f5a399"
+  integrity sha512-hgKsCay2taxzVnBPZl+1n4ZondsV78G++XVsMIJCAoioMjlMQR9YwAp7JZDIECzIu2Z66R+f4SFIRrO2DjDNAA==
   dependencies:
     "@babel/runtime" "^7.18.0"
-    async-validator "^4.1.0"
+    "@rc-component/async-validator" "^5.0.3"
     rc-util "^5.32.2"
 
-rc-image@~7.2.0:
-  version "7.2.0"
-  resolved "https://registry.npmjs.org/rc-image/-/rc-image-7.2.0.tgz"
-  integrity sha512-5Ug2hCVl6VcT0osR5XaZQ4zclTMEWPnbn3b4/TS/MR1QjRpEACLNFUzBGwr5mbAVhzvLWX5YZf4vO10xUA5IUA==
+rc-image@~7.11.1:
+  version "7.11.1"
+  resolved "https://registry.yarnpkg.com/rc-image/-/rc-image-7.11.1.tgz#3ab290708dc053d3681de94186522e4e594f6772"
+  integrity sha512-XuoWx4KUXg7hNy5mRTy1i8c8p3K8boWg6UajbHpDXS5AlRVucNfTi5YxTtPBTBzegxAZpvuLfh3emXFt6ybUdA==
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@rc-component/portal" "^1.0.2"
     classnames "^2.2.6"
-    rc-dialog "~9.2.0"
+    rc-dialog "~9.6.0"
     rc-motion "^2.6.2"
     rc-util "^5.34.1"
 
-rc-input-number@~8.0.4:
-  version "8.0.4"
-  resolved "https://registry.npmjs.org/rc-input-number/-/rc-input-number-8.0.4.tgz"
-  integrity sha512-TP+G5b7mZtbwXJ/YEZXF/OgbEZ6iqD4+RSuxZJ8VGKGXDcdt0FKIvpFoNQr/knspdFC4OxA0OfsWfFWfN4XSyA==
+rc-input-number@~9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/rc-input-number/-/rc-input-number-9.4.0.tgz#65caf04f1b6d05f47e141b1f5f484724c1f7fd5a"
+  integrity sha512-Tiy4DcXcFXAf9wDhN8aUAyMeCLHJUHA/VA/t7Hj8ZEx5ETvxG7MArDOSE6psbiSCo+vJPm4E3fGN710ITVn6GA==
   dependencies:
     "@babel/runtime" "^7.10.1"
     "@rc-component/mini-decimal" "^1.0.1"
     classnames "^2.2.5"
-    rc-input "~1.1.0"
-    rc-util "^5.28.0"
+    rc-input "~1.7.1"
+    rc-util "^5.40.1"
 
-rc-input@~1.1.0, rc-input@~1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/rc-input/-/rc-input-1.1.1.tgz"
-  integrity sha512-NTR1Z4em681L8/ewb2KR80RykSmN8I2mzqzJDCoUmTrV1BB9Hk5d7ha4TnfgdEPPL148N+603sW2LExSXk1IbA==
+rc-input@~1.7.1, rc-input@~1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/rc-input/-/rc-input-1.7.3.tgz#cb334a17b93ce985bceb243b4c111a5ed641e0e3"
+  integrity sha512-A5w4egJq8+4JzlQ55FfQjDnPvOaAbzwC3VLOAdOytyek3TboSOP9qxN+Gifup+shVXfvecBLBbWBpWxmk02SWQ==
   dependencies:
     "@babel/runtime" "^7.11.1"
     classnames "^2.2.1"
     rc-util "^5.18.1"
 
-rc-mentions@~2.7.0:
-  version "2.7.0"
-  resolved "https://registry.npmjs.org/rc-mentions/-/rc-mentions-2.7.0.tgz"
-  integrity sha512-tn0x79cpnVYP+MA+jyBqalmEni9Ct7xHuA9QHIf5vwd25FU+hngGZ8n6Dfua7XCr4LhkZYjfD/rZTGrvY2C1Xg==
+rc-mentions@~2.19.1:
+  version "2.19.1"
+  resolved "https://registry.yarnpkg.com/rc-mentions/-/rc-mentions-2.19.1.tgz#3fd0dd0bf3dd63afdb6a21750cbae81f3824b9c4"
+  integrity sha512-KK3bAc/bPFI993J3necmaMXD2reZTzytZdlTvkeBbp50IGH1BDPDvxLdHDUrpQx2b2TGaVJsn+86BvYa03kGqA==
   dependencies:
     "@babel/runtime" "^7.22.5"
-    "@rc-component/trigger" "^1.5.0"
+    "@rc-component/trigger" "^2.0.0"
     classnames "^2.2.6"
-    rc-input "~1.1.0"
-    rc-menu "~9.12.0"
-    rc-textarea "~1.3.0"
+    rc-input "~1.7.1"
+    rc-menu "~9.16.0"
+    rc-textarea "~1.9.0"
     rc-util "^5.34.1"
 
-rc-menu@~9.12.0:
-  version "9.12.0"
-  resolved "https://registry.npmjs.org/rc-menu/-/rc-menu-9.12.0.tgz"
-  integrity sha512-Apr/fRf5EcqWJ4nphHV6dTGZcLPaPzwY44q9hAtLJysY4rkC9Eg+ekj3uFx6opPWVruV2sJNWq/Po+HHtO48CA==
+rc-menu@~9.16.0, rc-menu@~9.16.1:
+  version "9.16.1"
+  resolved "https://registry.yarnpkg.com/rc-menu/-/rc-menu-9.16.1.tgz#9df1168e41d87dc7164c582173e1a1d32011899f"
+  integrity sha512-ghHx6/6Dvp+fw8CJhDUHFHDJ84hJE3BXNCzSgLdmNiFErWSOaZNsihDAsKq9ByTALo/xkNIwtDFGIl6r+RPXBg==
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "@rc-component/trigger" "^1.6.2"
+    "@rc-component/trigger" "^2.0.0"
     classnames "2.x"
     rc-motion "^2.4.3"
     rc-overflow "^1.3.1"
     rc-util "^5.27.0"
 
-rc-motion@^2.0.0, rc-motion@^2.0.1, rc-motion@^2.3.0, rc-motion@^2.3.4, rc-motion@^2.4.3, rc-motion@^2.4.4, rc-motion@^2.6.0, rc-motion@^2.6.1, rc-motion@^2.6.2, rc-motion@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.npmjs.org/rc-motion/-/rc-motion-2.9.0.tgz"
-  integrity sha512-XIU2+xLkdIr1/h6ohPZXyPBMvOmuyFZQ/T0xnawz+Rh+gh4FINcnZmMT5UTIj6hgI0VLDjTaPeRd+smJeSPqiQ==
+rc-motion@^2.0.0, rc-motion@^2.0.1, rc-motion@^2.3.0, rc-motion@^2.3.4, rc-motion@^2.4.3, rc-motion@^2.4.4, rc-motion@^2.6.1, rc-motion@^2.6.2, rc-motion@^2.9.0, rc-motion@^2.9.5:
+  version "2.9.5"
+  resolved "https://registry.yarnpkg.com/rc-motion/-/rc-motion-2.9.5.tgz#12c6ead4fd355f94f00de9bb4f15df576d677e0c"
+  integrity sha512-w+XTUrfh7ArbYEd2582uDrEhmBHwK1ZENJiSJVb7uRxdE7qJSYjbO2eksRXmndqyKqKoYPc9ClpPh5242mV1vA==
   dependencies:
     "@babel/runtime" "^7.11.1"
     classnames "^2.2.1"
-    rc-util "^5.21.0"
+    rc-util "^5.44.0"
 
-rc-notification@~5.1.1:
-  version "5.1.1"
-  resolved "https://registry.npmjs.org/rc-notification/-/rc-notification-5.1.1.tgz"
-  integrity sha512-BPnded/WmWFE57ubqhVCgRSuedfQQNeSOYqdwppyr2B/Wt909gYFKyWAkFJVXuppAjsOGop05a93UaxjmUFdkg==
+rc-notification@~5.6.3:
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/rc-notification/-/rc-notification-5.6.3.tgz#5aca122b7e2fb73ae4ba77238a90e6e8c9c12b8d"
+  integrity sha512-42szwnn8VYQoT6GnjO00i1iwqV9D1TTMvxObWsuLwgl0TsOokzhkYiufdtQBsJMFjJravS1hfDKVMHLKLcPE4g==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
-    rc-motion "^2.6.0"
+    rc-motion "^2.9.0"
     rc-util "^5.20.1"
 
-rc-overflow@^1.3.1:
-  version "1.3.2"
-  resolved "https://registry.npmjs.org/rc-overflow/-/rc-overflow-1.3.2.tgz"
-  integrity sha512-nsUm78jkYAoPygDAcGZeC2VwIg/IBGSodtOY3pMof4W3M9qRJgqaDYm03ZayHlde3I6ipliAxbN0RUcGf5KOzw==
+rc-overflow@^1.3.1, rc-overflow@^1.3.2:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/rc-overflow/-/rc-overflow-1.4.1.tgz#e1bcf0375979c24cffa2d87bf83a19ded5fcdf45"
+  integrity sha512-3MoPQQPV1uKyOMVNd6SZfONi+f3st0r8PksexIdBTeIYbMX0Jr+k7pHEDvsXtR4BpCv90/Pv2MovVNhktKrwvw==
   dependencies:
     "@babel/runtime" "^7.11.1"
     classnames "^2.2.1"
     rc-resize-observer "^1.0.0"
     rc-util "^5.37.0"
 
-rc-pagination@~3.6.1:
-  version "3.6.1"
-  resolved "https://registry.npmjs.org/rc-pagination/-/rc-pagination-3.6.1.tgz"
-  integrity sha512-R/sUnKKXx1Nm4kZfUKS3YKa7yEPF1ZkVB/AynQaHt+nMER7h9wPTfliDJFdYo+RM/nk2JD4Yc5QpUq8fIQHeug==
+rc-pagination@~5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/rc-pagination/-/rc-pagination-5.1.0.tgz#a6e63a2c5db29e62f991282eb18a2d3ee725ba8b"
+  integrity sha512-8416Yip/+eclTFdHXLKTxZvn70duYVGTvUUWbckCCZoIl3jagqke3GLsFrMs0bsQBikiYpZLD9206Ej4SOdOXQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
-    classnames "^2.2.1"
-    rc-util "^5.32.2"
+    classnames "^2.3.2"
+    rc-util "^5.38.0"
 
-rc-picker@~3.14.1:
-  version "3.14.1"
-  resolved "https://registry.npmjs.org/rc-picker/-/rc-picker-3.14.1.tgz"
-  integrity sha512-U3XKgD1f3OXwRD6aKyuEcZozTPPSuAzmTZO9F5F4ywrcFzSMdq2JmDzhaHH3jjD7WY8w3SaMlLBV01KmHOr5hA==
+rc-picker@~4.11.3:
+  version "4.11.3"
+  resolved "https://registry.yarnpkg.com/rc-picker/-/rc-picker-4.11.3.tgz#7e7e3ad83aa461c284b8391c697492d1c34d2cb8"
+  integrity sha512-MJ5teb7FlNE0NFHTncxXQ62Y5lytq6sh5nUw0iH8OkHL/TjARSEvSHpr940pWgjGANpjCwyMdvsEV55l5tYNSg==
   dependencies:
-    "@babel/runtime" "^7.10.1"
-    "@rc-component/trigger" "^1.5.0"
+    "@babel/runtime" "^7.24.7"
+    "@rc-component/trigger" "^2.0.0"
     classnames "^2.2.1"
-    rc-util "^5.30.0"
+    rc-overflow "^1.3.2"
+    rc-resize-observer "^1.4.0"
+    rc-util "^5.43.0"
 
-rc-progress@~3.5.1:
-  version "3.5.1"
-  resolved "https://registry.npmjs.org/rc-progress/-/rc-progress-3.5.1.tgz"
-  integrity sha512-V6Amx6SbLRwPin/oD+k1vbPrO8+9Qf8zW1T8A7o83HdNafEVvAxPV5YsgtKFP+Ud5HghLj33zKOcEHrcrUGkfw==
+rc-progress@~4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/rc-progress/-/rc-progress-4.0.0.tgz#5382147d9add33d3a5fbd264001373df6440e126"
+  integrity sha512-oofVMMafOCokIUIBnZLNcOZFsABaUw8PPrf1/y0ZBvKZNpOiu5h4AO9vv11Sw0p4Hb3D0yGWuEattcQGtNJ/aw==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.6"
     rc-util "^5.16.1"
 
-rc-rate@~2.12.0:
-  version "2.12.0"
-  resolved "https://registry.npmjs.org/rc-rate/-/rc-rate-2.12.0.tgz"
-  integrity sha512-g092v5iZCdVzbjdn28FzvWebK2IutoVoiTeqoLTj9WM7SjA/gOJIw5/JFZMRyJYYVe1jLAU2UhAfstIpCNRozg==
+rc-rate@~2.13.1:
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/rc-rate/-/rc-rate-2.13.1.tgz#29af7a3d4768362e9d4388f955a8b6389526b7fd"
+  integrity sha512-QUhQ9ivQ8Gy7mtMZPAjLbxBt5y9GRp65VcUyGUMF3N3fhiftivPHdpuDIaWIMOTEprAjZPC08bls1dQB+I1F2Q==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.5"
     rc-util "^5.0.1"
 
-rc-resize-observer@^1.0.0, rc-resize-observer@^1.1.0, rc-resize-observer@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.npmjs.org/rc-resize-observer/-/rc-resize-observer-1.3.1.tgz"
-  integrity sha512-iFUdt3NNhflbY3mwySv5CA1TC06zdJ+pfo0oc27xpf4PIOvfZwZGtD9Kz41wGYqC4SLio93RVAirSSpYlV/uYg==
+rc-resize-observer@^1.0.0, rc-resize-observer@^1.1.0, rc-resize-observer@^1.3.1, rc-resize-observer@^1.4.0, rc-resize-observer@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/rc-resize-observer/-/rc-resize-observer-1.4.3.tgz#4fd41fa561ba51362b5155a07c35d7c89a1ea569"
+  integrity sha512-YZLjUbyIWox8E9i9C3Tm7ia+W7euPItNWSPX5sCcQTYbnwDb5uNpnLHQCG1f22oZWUhLw4Mv2tFmeWe68CDQRQ==
   dependencies:
     "@babel/runtime" "^7.20.7"
     classnames "^2.2.1"
-    rc-util "^5.27.0"
+    rc-util "^5.44.1"
     resize-observer-polyfill "^1.5.1"
 
-rc-segmented@~2.2.2:
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/rc-segmented/-/rc-segmented-2.2.2.tgz"
-  integrity sha512-Mq52M96QdHMsNdE/042ibT5vkcGcD5jxKp7HgPC2SRofpia99P5fkfHy1pEaajLMF/kj0+2Lkq1UZRvqzo9mSA==
+rc-segmented@~2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/rc-segmented/-/rc-segmented-2.7.0.tgz#f56c2044abf8f03958b3a9a9d32987f10dcc4fc4"
+  integrity sha512-liijAjXz+KnTRVnxxXG2sYDGd6iLL7VpGGdR8gwoxAXy2KglviKCxLWZdjKYJzYzGSUwKDSTdYk8brj54Bn5BA==
   dependencies:
     "@babel/runtime" "^7.11.1"
     classnames "^2.2.1"
     rc-motion "^2.4.4"
     rc-util "^5.17.0"
 
-rc-select@~14.8.0, rc-select@~14.8.1:
-  version "14.8.1"
-  resolved "https://registry.npmjs.org/rc-select/-/rc-select-14.8.1.tgz"
-  integrity sha512-+MDaHteiKRL4iID9Osm8zAZTe+g7/t5CjIfJJ4QhPAvwGUaNCa2kvkMqiXfOfGevscVa+agha1Ov938MeAotfQ==
+rc-select@~14.16.2, rc-select@~14.16.6:
+  version "14.16.6"
+  resolved "https://registry.yarnpkg.com/rc-select/-/rc-select-14.16.6.tgz#1c57a9aa97248b3fd9a830d9bf5df6e9d2ad2c69"
+  integrity sha512-YPMtRPqfZWOm2XGTbx5/YVr1HT0vn//8QS77At0Gjb3Lv+Lbut0IORJPKLWu1hQ3u4GsA0SrDzs7nI8JG7Zmyg==
   dependencies:
     "@babel/runtime" "^7.10.1"
-    "@rc-component/trigger" "^1.5.0"
+    "@rc-component/trigger" "^2.1.1"
     classnames "2.x"
     rc-motion "^2.0.1"
     rc-overflow "^1.3.1"
     rc-util "^5.16.1"
     rc-virtual-list "^3.5.2"
 
-rc-slider@~10.2.1:
-  version "10.2.1"
-  resolved "https://registry.npmjs.org/rc-slider/-/rc-slider-10.2.1.tgz"
-  integrity sha512-l355C/65iV4UFp7mXq5xBTNX2/tF2g74VWiTVlTpNp+6vjE/xaHHNiQq5Af+Uu28uUiqCuH/QXs5HfADL9KJ/A==
+rc-slider@~11.1.8:
+  version "11.1.8"
+  resolved "https://registry.yarnpkg.com/rc-slider/-/rc-slider-11.1.8.tgz#cf3b30dacac8f98d44f7685f733f6f7da146fc06"
+  integrity sha512-2gg/72YFSpKP+Ja5AjC5DPL1YnV8DEITDQrcc1eASrUYjl0esptaBVJBh5nLTXCCp15eD8EuGjwezVGSHhs9tQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.5"
-    rc-util "^5.27.0"
+    rc-util "^5.36.0"
 
 rc-steps@~6.0.1:
   version "6.0.1"
-  resolved "https://registry.npmjs.org/rc-steps/-/rc-steps-6.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/rc-steps/-/rc-steps-6.0.1.tgz#c2136cd0087733f6d509209a84a5c80dc29a274d"
   integrity sha512-lKHL+Sny0SeHkQKKDJlAjV5oZ8DwCdS2hFhAkIjuQt1/pB81M0cA0ErVFdHq9+jmPmFw1vJB2F5NBzFXLJxV+g==
   dependencies:
     "@babel/runtime" "^7.16.7"
@@ -8092,73 +8076,74 @@ rc-steps@~6.0.1:
 
 rc-switch@~4.1.0:
   version "4.1.0"
-  resolved "https://registry.npmjs.org/rc-switch/-/rc-switch-4.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/rc-switch/-/rc-switch-4.1.0.tgz#f37d81b4e0c5afd1274fd85367b17306bf25e7d7"
   integrity sha512-TI8ufP2Az9oEbvyCeVE4+90PDSljGyuwix3fV58p7HV2o4wBnVToEyomJRVyTaZeqNPAp+vqeo4Wnj5u0ZZQBg==
   dependencies:
     "@babel/runtime" "^7.21.0"
     classnames "^2.2.1"
     rc-util "^5.30.0"
 
-rc-table@~7.34.0:
-  version "7.34.0"
-  resolved "https://registry.npmjs.org/rc-table/-/rc-table-7.34.0.tgz"
-  integrity sha512-ueh5AQilBLk0i75FPQj0LekxYbYE6pUKHRNT14wpW0wSbTXfG7QD/LFQqUjdSz5UyAflC8gedmsehTuWI9bp0Q==
+rc-table@~7.50.4:
+  version "7.50.4"
+  resolved "https://registry.yarnpkg.com/rc-table/-/rc-table-7.50.4.tgz#687b5bf76d1a94168f75481cbc83be9442010432"
+  integrity sha512-Y+YuncnQqoS5e7yHvfvlv8BmCvwDYDX/2VixTBEhkMDk9itS9aBINp4nhzXFKiBP/frG4w0pS9d9Rgisl0T1Bw==
   dependencies:
     "@babel/runtime" "^7.10.1"
     "@rc-component/context" "^1.4.0"
     classnames "^2.2.5"
     rc-resize-observer "^1.1.0"
-    rc-util "^5.36.0"
-    rc-virtual-list "^3.10.7"
+    rc-util "^5.44.3"
+    rc-virtual-list "^3.14.2"
 
-rc-tabs@~12.12.1:
-  version "12.12.1"
-  resolved "https://registry.npmjs.org/rc-tabs/-/rc-tabs-12.12.1.tgz"
-  integrity sha512-e10VBjEkECdPl4XZSs9to81SE+mgclBTM7J8/LMsFqmJoi05Tci91bRnmeeDtrcOCx2PuZdJv57XUlC4d8PEIw==
+rc-tabs@~15.5.1:
+  version "15.5.1"
+  resolved "https://registry.yarnpkg.com/rc-tabs/-/rc-tabs-15.5.1.tgz#9460ae1fd75e2a217e30e596c26425a661a2a4c6"
+  integrity sha512-yiWivLAjEo5d1v2xlseB2dQocsOhkoVSfo1krS8v8r+02K+TBUjSjXIf7dgyVSxp6wRIPv5pMi5hanNUlQMgUA==
   dependencies:
     "@babel/runtime" "^7.11.2"
     classnames "2.x"
-    rc-dropdown "~4.1.0"
-    rc-menu "~9.12.0"
+    rc-dropdown "~4.2.0"
+    rc-menu "~9.16.0"
     rc-motion "^2.6.2"
     rc-resize-observer "^1.0.0"
     rc-util "^5.34.1"
 
-rc-textarea@~1.3.0, rc-textarea@~1.3.4:
-  version "1.3.4"
-  resolved "https://registry.npmjs.org/rc-textarea/-/rc-textarea-1.3.4.tgz"
-  integrity sha512-wn0YjTpvcVolcfXa0HtzL+jgV2QcwtfB29RwNAKj8hMgZOju1V24M3TfEDjABeQEAQbUGbjMbISREOX/YSVKhg==
+rc-textarea@~1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/rc-textarea/-/rc-textarea-1.9.0.tgz#d807194ebef90f25f0b9501cddf5e8f2968d598a"
+  integrity sha512-dQW/Bc/MriPBTugj2Kx9PMS5eXCCGn2cxoIaichjbNvOiARlaHdI99j4DTxLl/V8+PIfW06uFy7kjfUIDDKyxQ==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.1"
-    rc-input "~1.1.0"
+    rc-input "~1.7.1"
     rc-resize-observer "^1.0.0"
     rc-util "^5.27.0"
 
-rc-tooltip@~6.0.1:
-  version "6.0.1"
-  resolved "https://registry.npmjs.org/rc-tooltip/-/rc-tooltip-6.0.1.tgz"
-  integrity sha512-MdvPlsD1fDSxKp9+HjXrc/CxLmA/s11QYIh1R7aExxfodKP7CZA++DG1AjrW80F8IUdHYcR43HAm0Y2BYPelHA==
+rc-tooltip@~6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/rc-tooltip/-/rc-tooltip-6.4.0.tgz#e832ed0392872025e59928cfc1ad9045656467fd"
+  integrity sha512-kqyivim5cp8I5RkHmpsp1Nn/Wk+1oeloMv9c7LXNgDxUpGm+RbXJGL+OPvDlcRnx9DBeOe4wyOIl4OKUERyH1g==
   dependencies:
     "@babel/runtime" "^7.11.2"
-    "@rc-component/trigger" "^1.0.4"
+    "@rc-component/trigger" "^2.0.0"
     classnames "^2.3.1"
+    rc-util "^5.44.3"
 
-rc-tree-select@~5.12.1:
-  version "5.12.1"
-  resolved "https://registry.npmjs.org/rc-tree-select/-/rc-tree-select-5.12.1.tgz"
-  integrity sha512-/IC6gRgRoUBCOwZASOiF3onp1484fb+Gke5zuxgsi3ViP+O2UTUByS1jTZzjNooidRgdwiQJksq1zVaVYw2TPg==
+rc-tree-select@~5.27.0:
+  version "5.27.0"
+  resolved "https://registry.yarnpkg.com/rc-tree-select/-/rc-tree-select-5.27.0.tgz#3daa62972ae80846dac96bf4776d1a9dc9c7c4c6"
+  integrity sha512-2qTBTzwIT7LRI1o7zLyrCzmo5tQanmyGbSaGTIf7sYimCklAToVVfpMC6OAldSKolcnjorBYPNSKQqJmN3TCww==
   dependencies:
-    "@babel/runtime" "^7.10.1"
+    "@babel/runtime" "^7.25.7"
     classnames "2.x"
-    rc-select "~14.8.0"
-    rc-tree "~5.7.0"
-    rc-util "^5.16.1"
+    rc-select "~14.16.2"
+    rc-tree "~5.13.0"
+    rc-util "^5.43.0"
 
-rc-tree@~5.7.0, rc-tree@~5.7.10:
-  version "5.7.10"
-  resolved "https://registry.npmjs.org/rc-tree/-/rc-tree-5.7.10.tgz"
-  integrity sha512-n4UkMQY3bzvJUNnbw6e3YI7sy2kE9c9vAYbSt94qAhcPKtMOThONNr1LIaFB/M5XeFYYrWVbvRVoT8k38eFuSQ==
+rc-tree@~5.13.0, rc-tree@~5.13.1:
+  version "5.13.1"
+  resolved "https://registry.yarnpkg.com/rc-tree/-/rc-tree-5.13.1.tgz#f36a33a94a1282f4b09685216c01487089748910"
+  integrity sha512-FNhIefhftobCdUJshO7M8uZTA9F4OPGVXqGfZkkD/5soDeOhwO06T/aKTrg0WD8gRg/pyfq+ql3aMymLHCTC4A==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
@@ -8166,27 +8151,27 @@ rc-tree@~5.7.0, rc-tree@~5.7.10:
     rc-util "^5.16.1"
     rc-virtual-list "^3.5.1"
 
-rc-upload@~4.3.4:
-  version "4.3.4"
-  resolved "https://registry.npmjs.org/rc-upload/-/rc-upload-4.3.4.tgz"
-  integrity sha512-uVbtHFGNjHG/RyAfm9fluXB6pvArAGyAx8z7XzXXyorEgVIWj6mOlriuDm0XowDHYz4ycNK0nE0oP3cbFnzxiQ==
+rc-upload@~4.8.1:
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/rc-upload/-/rc-upload-4.8.1.tgz#ac55f2bc101b95b52a6e47f3c18f0f55b54e16d2"
+  integrity sha512-toEAhwl4hjLAI1u8/CgKWt30BR06ulPa4iGQSMvSXoHzO88gPCslxqV/mnn4gJU7PDoltGIC9Eh+wkeudqgHyw==
   dependencies:
     "@babel/runtime" "^7.18.3"
     classnames "^2.2.5"
     rc-util "^5.2.0"
 
-rc-util@^5.0.1, rc-util@^5.16.1, rc-util@^5.17.0, rc-util@^5.18.1, rc-util@^5.2.0, rc-util@^5.20.1, rc-util@^5.21.0, rc-util@^5.24.4, rc-util@^5.25.2, rc-util@^5.26.0, rc-util@^5.27.0, rc-util@^5.28.0, rc-util@^5.30.0, rc-util@^5.31.1, rc-util@^5.32.2, rc-util@^5.33.0, rc-util@^5.34.1, rc-util@^5.35.0, rc-util@^5.36.0, rc-util@^5.37.0:
-  version "5.37.0"
-  resolved "https://registry.npmjs.org/rc-util/-/rc-util-5.37.0.tgz"
-  integrity sha512-cPMV8DzaHI1KDaS7XPRXAf4J7mtBqjvjikLpQieaeOO7+cEbqY2j7Kso/T0R0OiEZTNcLS/8Zl9YrlXiO9UbjQ==
+rc-util@^5.0.1, rc-util@^5.16.1, rc-util@^5.17.0, rc-util@^5.18.1, rc-util@^5.2.0, rc-util@^5.20.1, rc-util@^5.21.0, rc-util@^5.24.4, rc-util@^5.25.2, rc-util@^5.27.0, rc-util@^5.30.0, rc-util@^5.31.1, rc-util@^5.32.2, rc-util@^5.34.1, rc-util@^5.35.0, rc-util@^5.36.0, rc-util@^5.37.0, rc-util@^5.38.0, rc-util@^5.38.1, rc-util@^5.40.1, rc-util@^5.43.0, rc-util@^5.44.0, rc-util@^5.44.1, rc-util@^5.44.3, rc-util@^5.44.4:
+  version "5.44.4"
+  resolved "https://registry.yarnpkg.com/rc-util/-/rc-util-5.44.4.tgz#89ee9037683cca01cd60f1a6bbda761457dd6ba5"
+  integrity sha512-resueRJzmHG9Q6rI/DfK6Kdv9/Lfls05vzMs1Sk3M2P+3cJa+MakaZyWY8IPfehVuhPJFKrIY1IK4GqbiaiY5w==
   dependencies:
     "@babel/runtime" "^7.18.3"
-    react-is "^16.12.0"
+    react-is "^18.2.0"
 
-rc-virtual-list@^3.10.7, rc-virtual-list@^3.5.1, rc-virtual-list@^3.5.2:
-  version "3.10.7"
-  resolved "https://registry.npmjs.org/rc-virtual-list/-/rc-virtual-list-3.10.7.tgz"
-  integrity sha512-NZl8nsNV2kf0k9o4SHt6u/2kFBhE0SRTh71msUZkUB/rfNTBRKnhLXf8bD2jayT7TkprnbHBCPQbPqwJo2BSJw==
+rc-virtual-list@^3.14.2, rc-virtual-list@^3.5.1, rc-virtual-list@^3.5.2:
+  version "3.18.5"
+  resolved "https://registry.yarnpkg.com/rc-virtual-list/-/rc-virtual-list-3.18.5.tgz#5ce9a68cc755df024526033d7993ace911197c23"
+  integrity sha512-1FuxVSxhzTj3y8k5xMPbhXCB0t2TOiI3Tq+qE2Bu+GGV7f+ECVuQl4OUg6lZ2qT5fordTW7CBpr9czdzXCI7Pg==
   dependencies:
     "@babel/runtime" "^7.20.0"
     classnames "^2.2.6"
@@ -8248,7 +8233,7 @@ react-error-overlay@^6.0.11:
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.11.tgz"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
 
-react-is@^16.12.0, react-is@^16.13.1, react-is@^16.7.0:
+react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -8262,6 +8247,11 @@ react-is@^18.0.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
+
+react-is@^18.2.0:
+  version "18.3.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-18.3.1.tgz#e83557dc12eae63a99e003a46388b1dcbb44db7e"
+  integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
 react-refresh@^0.11.0:
   version "0.11.0"
@@ -8414,9 +8404,9 @@ regenerator-runtime@^0.13.9:
   integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
 regenerator-runtime@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.14.0.tgz"
-  integrity sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==
+  version "0.14.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.14.1.tgz#356ade10263f685dda125100cd862c1db895327f"
+  integrity sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==
 
 regenerator-transform@^0.15.1:
   version "0.15.1"
@@ -8491,7 +8481,7 @@ requires-port@^1.0.0:
 
 resize-observer-polyfill@^1.5.1:
   version "1.5.1"
-  resolved "https://registry.npmjs.org/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^3.0.0:
@@ -8694,9 +8684,9 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.1.0"
 
-scroll-into-view-if-needed@^3.0.3:
+scroll-into-view-if-needed@^3.1.0:
   version "3.1.0"
-  resolved "https://registry.npmjs.org/scroll-into-view-if-needed/-/scroll-into-view-if-needed-3.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/scroll-into-view-if-needed/-/scroll-into-view-if-needed-3.1.0.tgz#fa9524518c799b45a2ef6bbffb92bcad0296d01f"
   integrity sha512-49oNpRjWRvnU8NyGVmUaYG4jtTkNonFZI86MmGRDqBphEK2EXT9gdEUoQPZhuBM8yWHxCWbobltqYO5M4XrUvQ==
   dependencies:
     compute-scroll-into-view "^3.0.2"
@@ -8959,7 +8949,7 @@ stop-iteration-iterator@^1.0.0:
 
 string-convert@^0.2.0:
   version "0.2.1"
-  resolved "https://registry.npmjs.org/string-convert/-/string-convert-0.2.1.tgz"
+  resolved "https://registry.yarnpkg.com/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
   integrity sha512-u/1tdPl4yQnPBjnVrmdLo9gtuLvELKsAoRapekWggdiQNvvvum+jYF329d84NAa660KQw7pB2n36KrIKVoXa3A==
 
 string-length@^4.0.1:
@@ -9115,10 +9105,10 @@ stylehacks@^5.1.1:
     browserslist "^4.21.4"
     postcss-selector-parser "^6.0.4"
 
-stylis@^4.0.13:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/stylis/-/stylis-4.3.0.tgz"
-  integrity sha512-E87pIogpwUsUwXw7dNyU4QDjdgVMy52m+XEOPEKUn161cCzWjjhPSQhByfd1CcNvrOLnXQ6OnnZDwnJrz/Z4YQ==
+stylis@^4.3.4:
+  version "4.3.6"
+  resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.3.6.tgz#7c7b97191cb4f195f03ecab7d52f7902ed378320"
+  integrity sha512-yQ3rwFWRfwNUY7H5vpU0wfdkNSnvnJinhF9830Swlaxl03zsOjCfmX0ugac+3LtK0lYSgwL/KXc8oYL3mG4YFQ==
 
 sucrase@^3.32.0:
   version "3.32.0"
@@ -9330,10 +9320,10 @@ throat@^6.0.1:
   resolved "https://registry.npmjs.org/throat/-/throat-6.0.2.tgz"
   integrity sha512-WKexMoJj3vEuK0yFEapj8y64V0A6xcuPuK9Gt1d0R+dzCSJc0lHqQytAbSB4cDAK0dWh4T0E2ETkoLE2WZ41OQ==
 
-throttle-debounce@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/throttle-debounce/-/throttle-debounce-5.0.0.tgz"
-  integrity sha512-2iQTSgkkc1Zyk0MeVrt/3BvuOXYPl/R8Z0U2xxo9rjwNciaHDG3R+Lm6dh4EeUci49DanvBnuqI6jshoQQRGEg==
+throttle-debounce@^5.0.0, throttle-debounce@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-5.0.2.tgz#ec5549d84e053f043c9fd0f2a6dd892ff84456b1"
+  integrity sha512-B71/4oyj61iNH0KeCamLuE2rmKuTO5byTOSVwECM5FA7TiAiAW+UqTKZ9ERueC4qvgSttUhdmq1mXC3kJqGX7A==
 
 thunky@^1.0.2:
   version "1.1.0"
@@ -9359,7 +9349,7 @@ to-regex-range@^5.0.1:
 
 toggle-selection@^1.0.6:
   version "1.0.6"
-  resolved "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
+  resolved "https://registry.yarnpkg.com/toggle-selection/-/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
   integrity sha512-BiZS+C1OS8g/q2RRbJmy59xpyghNBqrr6k5L/uKBGRsTfxmu3ffiRnd8mlGPUVayg8pvfi5urfnu8TU7DVOkLQ==
 
 toidentifier@1.0.1:
@@ -9502,6 +9492,11 @@ unbox-primitive@^1.0.2:
     has-bigints "^1.0.2"
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
+
+undici-types@~6.20.0:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.20.0.tgz#8171bf22c1f588d1554d55bf204bc624af388433"
+  integrity sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==
 
 unicode-canonical-property-names-ecmascript@^2.0.0:
   version "2.0.0"
