@@ -89,6 +89,13 @@ export const GET_ENTERPRISE_SLIPS = gql`
                 balanceAmount
                 created_at
             }
+            receive_slips(order_by: { created_at: desc_nulls_first }) {
+                id
+                order_id
+                amount_received
+                payment_mode
+                created_at
+            }
         }
     }
 `;
