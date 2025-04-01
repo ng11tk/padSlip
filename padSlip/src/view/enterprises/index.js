@@ -10,7 +10,7 @@ const Enterprises = () => {
     useState(false);
   const [searchEnterprise, setSearchEnterprise] = useState("");
   const [filteredEnterpriseList, setFilteredEnterpriseList] = useState([]);
-
+ 
   //* fetch enterprise
   const { loading, error } = useQuery(FETCH_ENTERPRISE_LIST, {
     variables: {

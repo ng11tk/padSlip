@@ -147,7 +147,7 @@ const SlipModal = ({ showModal, closeModal }) => {
 
     const handleReceivedAmount = (e) => {
         const value = e.target.value || 0;
-        setReceivedAmount(value);
+        setReceivedAmount(Number(value));
     };
 
     //* handle onSubmit
@@ -212,23 +212,27 @@ const SlipModal = ({ showModal, closeModal }) => {
                 })
             );
             if (insertSlipError) {
-                throw new Error("Order creation failed");
+                throw new Error("Failed to insert slip details");
             }
-            orderId = data?.orderDetails?.id;
-            const [insertPaymentDetailsData, insertPaymentDetailsError] =
-                await promiseResolver(
-                    insertPaymentDetails({
-                        variables: {
-                            objects: {
-                                ...paymentDetails,
-                                order_id: orderId,
+            if (receivedAmount !== 0 && totalAmount !== 0) {
+                orderId = data?.orderDetails?.id;
+                const [insertPaymentDetailsData, insertPaymentDetailsError] =
+                    await promiseResolver(
+                        insertPaymentDetails({
+                            variables: {
+                                objects: {
+                                    ...paymentDetails,
+                                    order_id: orderId,
+                                },
                             },
-                        },
-                        onCompleted: () => closeModal(true),
-                    })
-                );
-            if (insertPaymentDetailsError) {
-                throw new Error("payment failed");
+                            onCompleted: () => closeModal(true),
+                        })
+                    );
+                if (insertPaymentDetailsError) {
+                    throw new Error("payment failed");
+                }
+            } else {
+                closeModal(true);
             }
             openNotification(alerts.SUCCESS, "Slip sent successfully.", 3);
         } catch (error) {

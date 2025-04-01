@@ -216,7 +216,6 @@ const Dashboard = () => {
         }
     };
 
-    // if (loading || fetchReceivedSlipsLoading) return <p>Loading...</p>;
     if (error || fetchReceivedSlipsError) return <p>Error : {error}</p>;
     return (
         <div className="w-full h-full">
