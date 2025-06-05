@@ -1,12 +1,16 @@
 const routes = {
-    dashboard: "/",
-    padSlip: "/padSlip",
-    enterprises: "/enterprises",
-    enterpriseDetails: "/enterprises/:id",
-    records: "/records",
-    statistics: "/statistics",
-    settings: "/settings",
     login: "/login",
+    logout: "/logout",
+
+    dashboard: "/",
+
+    purchaser: "/purchaser",
+    padSlip: "/purchaser/padSlip",
+    enterprises: "/purchaser/enterprises",
+    enterpriseDetails: "/purchaser/enterprises/:id",
+    records: "/purchaser/records",
+    statistics: "/purchaser/statistics",
+    settings: "/purchaser/settings",
 
     supplier: "/supplier",
     suppliersList: "/supplier/suppliers",

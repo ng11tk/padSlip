@@ -8,10 +8,10 @@ const slips = () => {
             <strong>Slips</strong>
             <ul>
                 <li>
-                    <Link to={routes.receivingOrderSlip}>Receiving Order</Link>
+                    <Link to={routes.generateOrderSlip}>Generate Order</Link>
                 </li>
                 <li>
-                    <Link to={routes.generateOrderSlip}>Generate Order</Link>
+                    <Link to={routes.receivingOrderSlip}>Receiving Order</Link>
                 </li>
                 <li>
                     <Link to={routes.depositSlip}>Deposit Slip</Link>
